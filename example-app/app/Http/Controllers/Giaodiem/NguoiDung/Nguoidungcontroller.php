@@ -22,52 +22,32 @@ class Nguoidungcontroller extends Controller
     {
         return view('nguoidung.login');
     }
-    public function catagory()
+    public function product()
     {
-        return view('nguoidung.dangmuc');
+        return view('nguoidung.product');
     }
     public function checkout()
     {
         return view('nguoidung.checkout');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function cart()
     {
-        //
+        return view('nguoidung.cart');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function productdetail()
     {
-        //
+        return view('nguoidung.productdetail');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function contact()
     {
-        //
+        return view('nguoidung.contact');
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function a404()
     {
-        //
+        return view('nguoidung.404');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function defaultpage()
     {
-        //
+        return view('nguoidung.defaultpage');
     }
 }
