@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [Nguoidungcontroller::class, 'index'])->name('/');
+Route::get('login', [Nguoidungcontroller::class, 'login'])->name('login');
+Route::get('catagory', [Nguoidungcontroller::class, 'catagory'])->name('catagory');
+Route::get('checkout', [Nguoidungcontroller::class, 'checkout'])->name('checkout');
