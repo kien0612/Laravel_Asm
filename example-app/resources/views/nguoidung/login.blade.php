@@ -56,7 +56,7 @@
                             </div>-->
                         <div class="col-md-4 col-sm-4">
                             <!-- Logo Desktop-->
-                            <a class="logo hidden-xs" href="index.html">
+                            <a class="logo hidden-xs" href="{{ route('/')}}">
                             <img class="site_logo" alt="Site Logo"  src="assets/img/logo.png" />
                             </a>
                         </div>
@@ -102,20 +102,21 @@
                                             </div>
                                         </div>
                                         <!--end shopping-cart-footer -->
-                                        <a href="#" class="theme-button">Checkout</a>
+                                        <a href="{{ Route('checkout') }}" class="theme-button">Checkout</a>
                                     </div>
                                     <!--end shopping-cart -->
                                 </li>
                                 <li>
                                     <a href="#" class="userIcon">
                                     <i class="fa fa-user-o" aria-hidden="true"></i>
+
                                     <sup>User</sup>
                                     </a>
                                     <div class="user-menu">
                                         <a class="closeMenu"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
                                         <ul class="user-menu-items">
                                             <li class="clearfix">
-                                                <a href="#">Account</a>
+                                                <a href="{{route('login')}}">Account</a>
                                             </li>
                                             <li class="clearfix">
                                                 <a href="#">Track Order</a>
@@ -194,136 +195,31 @@
                                     <div class="navbar-collapse collapse">
                                         <!-- Right nav Start -->
                                         <ul class="nav navbar-nav">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="{{ route('/') }}">Home</a></li>
                                             <li>
                                                 <a href="#">Shop Pages <span class="caret menu-arrow"></span><span class="sub-arrow">...</span></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="collection-grid-sidebar.html">Collection Grid Sidebar</a></li>
+                                                    {{-- <li><a href="collection-grid-sidebar.html">Collection Grid Sidebar</a></li>
                                                     <li><a href="collection-list-sidebar.html">Collection List Sidebar</a></li>
                                                     <li><a href="collection-grid-fullwidth.html">Collection Grid fullwidth</a></li>
-                                                    <li><a href="collection-list-fullwidth.html">Collection List fullwidth</a></li>
-                                                    <li><a href="product-detail.html">Product detail</a></li>
-                                                    <li><a href="cart.html">Cart Page</a></li>
-                                                    <li><a href="checkout.html">Checkout Page</a></li>
+                                                    <li><a href="collection-list-fullwidth.html">Collection List fullwidth</a></li> --}}
+                                                    <li><a href="{{  route('productdetail')}}">Product detail</a></li>
+                                                    <li><a href="{{ route('cart')}}">Cart Page</a></li>
+                                                    <li><a href="{{ route('checkout')}}">Checkout Page</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="mega-menu">
-                                                <a href="#" class="has-submenu">Categories <span class="caret menu-arrow"></span><span class="sub-arrow">...</span></a>
-                                                <ul class="dropdown-menu wv_menu_color sm-nowrap">
-                                                    <li>
-                                                        <!-- Home Mage Menu grids Begins -->
-                                                        <div class="row">
-                                                            <!-- Home Variation 1 Block -->
-                                                            <div class="col-sm-3">
-                                                                <!-- Title -->
-                                                                <h6 class="title">E-Commerce</h6>
-                                                                <!-- Links -->
-                                                                <div class="page-links">
-                                                                    <div>
-                                                                        <a href="collection-grid-sidebar.html">Collection</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-sidebar.html">dresses</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-sidebar.html">red</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-sidebar.html">brandeds</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-sidebar.html">summer</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Home Variation 1 Block -->
-                                                            <!-- Home Variation 2 Block -->
-                                                            <div class="col-sm-3">
-                                                                <!-- Title -->
-                                                                <h6 class="title">Html</h6>
-                                                                <!-- Links -->
-                                                                <div class="page-links">
-                                                                    <div>
-                                                                        <a href="collection-grid-fullwidth.html">Top Collection</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-fullwidth.html">brandeds</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-fullwidth.html">summer</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-fullwidth.html">responsive</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-grid-fullwidth.html">Sink</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Home Variation 2 Block -->
-                                                            <!-- One Page variation 1 -->
-                                                            <div class="col-sm-3">
-                                                                <!-- Title -->
-                                                                <h6 class="title">template</h6>
-                                                                <!-- Links -->
-                                                                <div class="page-links">
-                                                                    <div>
-                                                                        <a href="collection-list-sidebar.html">Bath Tub</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-list-sidebar.html">Old Style</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-list-sidebar.html">Collection</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-list-sidebar.html">brands</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-list-sidebar.html">red</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- One Page variation 1 -->
-                                                            <!-- One Page variation 2 -->
-                                                            <div class="col-sm-3">
-                                                                <!-- Title -->
-                                                                <h6 class="title">Brand</h6>
-                                                                <!-- Links -->
-                                                                <div class="page-links">
-                                                                    <div>
-                                                                        <a href="collection-list-fullwidth.html">Quia dolori</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-list-fullwidth.html">Dimile homini</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-list-fullwidth.html">Pulvinar risus</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="collection-list-fullwidth.html">Tincidunt </a>
-                                                                    </div>
-                                                                    <div>																		
-                                                                        <a href="collection-list-fullwidth.html">Asoori Drrm</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- One Page variation 2 -->
-                                                        </div>
-                                                        <!-- Ends Home Mage Menu Block -->
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                          
+                                            <li><a href="{{ route('product')}}">Categories</a></li>
                                             <li>
                                                 <a href="#">Pages <span class="caret menu-arrow"></span><span class="sub-arrow">...</span></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="404.html">404 Error page</a></li>
-                                                    <li><a href="FAQ.html">FAQs</a></li>
-                                                    <li><a href="login-area.html">Login Area</a></li>
-                                                    <li><a href="default-page.html">Default Page</a></li>
+                                                    <li><a href="{{ route('404')  }}">404 Error page</a></li>
+                                                    {{-- <li><a href="FAQ.html">FAQs</a></li> --}}
+                                                    <li><a href="{{ route('login') }}">Login Area</a></li>
+                                                    <li><a href="{{ route('defaultpage') }}">Default Page</a></li>
                                                 </ul>
                                             </li>
-                                            <li>
+                                            {{-- <li>
                                                 <a href="#">blog <span class="caret menu-arrow"></span><span class="sub-arrow">...</span></a> 
                                                 <ul class="dropdown-menu">
                                                     <li><a href="blog-style1.html">Blogs List Style1</a></li>
@@ -338,8 +234,8 @@
                                                         </ul>
                                                     </li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            </li> --}}
+                                            <li><a href="{{ route('contact')}}">Contact</a></li>
                                         </ul>
                                         <!-- /.Right nav  End-->
                                     </div>
@@ -388,7 +284,7 @@
                                                 <!--end shopping-cart -->
                                             </li>
                                             <li>
-                                                <a href="#" class="userIcon">
+                                                <a href="{{route('login')}}" class="userIcon">
                                                 <i class="fa fa-user-o" aria-hidden="true"></i>
                                                 <sup>User</sup>
                                                 </a>

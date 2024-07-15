@@ -6,7 +6,7 @@
         ********************************************************************************************************** 
         -->
     
-<!-- Mirrored from webaashi.com/TF/html/aashi-fashion-shop-html/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jul 2024 13:47:36 GMT -->
+<!-- Mirrored from webaashi.com/TF/html/aashi-fashion-shop-html/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jul 2024 13:47:36 GMT -->
 <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -367,14 +367,14 @@
             <div class="container breadcrumb-section">
                 <div class="row pad-s15">
                     <div class="col-md-12">
-                        <h2>Checkout Page</h2>
+                        <h2>Cart Page</h2>
                         <div class="clear"></div>
                         <div class="breadcrumb-box">
                             <ul class="breadcrumb">
                                 <li>
                                     <a href="index.html">Home</a>
                                 </li>
-                                <li class="active">Checkout Page</li>
+                                <li class="active">Cart Page</li>
                             </ul>
                         </div>
                     </div>
@@ -382,198 +382,248 @@
             </div>
         </div>
         <!--//==Page Header End==//-->
-        <!--//== Order Billing and shipping Section Start ==//-->  
-        <section class="checkout-page padT100 padB50">
+        <!--//==Orders Section Start==//-->	  
+        <section class="cart-page padTB100">
             <div class="container">
-                <div class="row product-checkout pad-s15">
-                    <div class="col-md-12">
-                        <div class="market-info">
-                            <i class="fa fa-list-alt"></i> Returning a customer? <a class="showlogin" href="#">Click here to login</a>	
+                <div class="row wv-pads15">
+                    <div class="col-md-12 col-sm-12">
+                        <!--//==Section Heading Start==//-->
+                        <div class="left-title">
+                            <h2>Your Orders <span class="heading-border"></span></h2>
+                            <div class="clear"></div>
                         </div>
-                        <form action="#" method="post" class="login row">
-                            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section.</p>
-                            <p class="form-row col-sm-6 pd-right">
-                                <input type="text" name="username" id="username" placeholder="Username or email*" class="form-controller">
-                            </p>
-                            <p class="form-row col-sm-6 pd-left">
-                                <input type="password" name="password" id="password" placeholder="Passwords*" class="form-controller">
-                            </p>
-                            <p class="form-row col-sm-12">
-                                <input type="submit" value="Login" name="login" class="theme-button marL0">
-                                <label class="inline" for="rememberme">
-                                <input type="checkbox" value="forever" id="rememberme" name="rememberme"> Remember me		
-                                </label>
-                            </p>
-                            <p class="lost_password col-sm-12">
-                                <a href="#">Lost your password?</a>
-                            </p>
-                        </form>
-                    </div>
-                    <!-- /.col-md-12 -->
-                    <div class="col-md-12 marT30 marB30">
-                        <div class="market-info">
-                            <i class="fa fa-list-alt"></i>Have a coupon?<a class="showcoupon" href="#">Click here to enter your code</a>
-                        </div>
-                        <form action="#" method="post" class="checkout_coupon row">
-                            <p class="form-row col-sm-12">
-                                <input type="text" value="" id="coupon_code" placeholder="Coupon code" class="input-text" name="coupon_code">
-                            </p>
-                            <p class="form-row col-sm-12">
-                                <input type="submit" value="Apply Coupon" name="apply_coupon" class="theme-button">
-                            </p>
-                        </form>
-                    </div>
-                    <!-- /.col-md-12 -->					
-                    <!--//==Billings and Shipping Form Start==//-->	
-                    <form class="contact-form">
-                        <div class="col-sm-6 col-md-6 wv_checkout_left marT30">
-                            <!--//== Section Heading Start ==//-->
-                            <div class="left-title">
-                                <h2>Billings details <span class="heading-border"></span></h2>
-                                <div class="clear"></div>
+                        <!--//==Section Heading End==//-->
+                        <div class="clear"></div>
+                        <!--//==Order Table titles Start==//-->
+                        <div class="hidden-xs">
+                            <div class="col-md-2 col-sm-2 grey-bg">
+                                <div class="order-data text-center pad15">
+                                    <strong>Item</strong>
+                                </div>
                             </div>
-                            <!--//== Section Heading End ==//-->
-                            <!--//==Billings Form Start==//-->	
-                            <div class="row">
-                                <!--//==Billings Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="First Name:">
+                            <div class="col-md-2 col-sm-2 grey-bg">
+                                <div class="order-data text-center pad15">
+                                    <strong>product</strong>
                                 </div>
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Last Name:">
+                            </div>
+                            <div class="col-md-2 col-sm-2 grey-bg">
+                                <div class="order-data  text-center pad15">
+                                    <strong>price</strong>
                                 </div>
-                                <div class="col-md-12 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Company Name:">
+                            </div>
+                            <div class="col-md-2 col-sm-2 grey-bg">
+                                <div class="order-data text-center pad15">
+                                    <strong>Quantity</strong>
                                 </div>
-                                <!--//==Billings Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="email" id="exampleInputEmail" placeholder="Email:">
+                            </div>
+                            <div class="col-md-2 col-sm-2 grey-bg">
+                                <div class="order-data text-center pad15">
+                                    <strong>Total</strong>
                                 </div>
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="number" placeholder="Phone Number:">
+                            </div>
+                            <div class="col-md-2 col-sm-2 grey-bg">
+                                <div class="order-data text-center pad15">
+                                    <strong>Status</strong>
                                 </div>
-                                <!--//==Billings Input Field==//-->
-                                <div class="col-md-12 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Street Address:">
-                                </div>
-                                <!--//==Billings Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Town/City:">
-                                </div>
-                                <!--//==Billings Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Postcode/zip:">
-                                </div>
-                                <!--//==Create Account Input Field==//-->
-                                <div class="col-md-12 form-group">
-                                    <div class="wv_widget wv_checkout_check">
-                                        <input type="checkbox" class="grey" value="1" name="createaccount" id="createaccount">
-                                        <label for="createaccount">Create an account?</label>										
+                            </div>
+                        </div>
+                        <!--//==Order Table titles End==//-->
+                        <!--//==Order Table Row ==//-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="order-row padTB20">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center padTB15">
+                                            <div class="order-table-cell">
+                                                <a href="product-detail.html"><img src="assets/img/product/cart1.jpg" alt=""></a>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">           
+                                                <strong><a href="product-detail.html">Product Title</a></strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong>170.00 $</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <input type="number" value="1" class="qty" name="qty1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong>170.00 $</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></strong>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="create-account col-sm-12">
-                                    <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-                                    <p id="account_password_field">
-                                        <input type="password" value="" placeholder="Account password*" id="account_password" name="account_password" class="form-controller">
-                                    </p>
-                                </div>
                             </div>
-                            <!--//==Billings Form Start==//-->	
                         </div>
-                        <div class="col-sm-6 col-md-6 marT30">
-                            <!--//== Section Heading Start ==//-->
-                            <div class="left-title">
-                                <h2 id="ship-to-different-address">Different Shipping Detail?<span class="heading-border"></span>
-                                    <input type="checkbox" value="1" name="ship_to_different_address" class="input-checkbox" id="ship-to-different-address-checkbox">
-                                </h2>
-                                <div class="clear"></div>
-                            </div>
-                            <!--//== Section Heading End ==//-->
-                            <!--//==Shipping Form Start==//-->							
-                            <div class="row shipping-fields">
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="First Name:">
-                                </div>
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Last Name:">
-                                </div>
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-12 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Company Name:">
-                                </div>
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="email" id="exampleInputEmail1" placeholder="Email:">
-                                </div>
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="number" placeholder="Phone Number:">
-                                </div>
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-12 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Street Address:">
-                                </div>
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Town/City:">
-                                </div>
-                                <!--//==Shipping Input Field==//-->
-                                <div class="col-md-6 form-group">
-                                    <input class="wv_form_focus" type="text" placeholder="Postcode/zip:">
-                                </div>
-                            </div>
-                            <!--//==Shipping Form End==//-->	
-                            <div class="row">
-                                <!--//==Extra Message Field==//-->
-                                <div class="col-md-12 form-group">
-                                    <textarea name="contact_message" class="textarea-message wv_form_focus wv_checkout_tarea" placeholder="Notes about your order, e.g. special notes for delivery." rows="8"></textarea>							
+                        <!--//==Order Table Row ==//-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="order-row last padTB20">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center padTB15">
+                                            <div class="order-table-cell">
+                                                <a href="product-detail.html"><img src="assets/img/product/cart2.jpg" alt=""></a>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">           
+                                                <strong><a href="product-detail.html">Product Title</a></strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong>170.00 $</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <input type="number" value="1" class="qty" name="qty1">											
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong>170.00 $</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></strong>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <!--//==Billings and Shipping Form End==//-->	
+                        <!--//==Order Table Row ==//-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="order-row last padTB20">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center padTB15">
+                                            <div class="order-table-cell">
+                                                <a href="product-detail.html"><img src="assets/img/product/cart3.jpg" alt=""></a>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">           
+                                                <strong><a href="product-detail.html">Product Title</a></strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong>170.00 $</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <input type="number" value="1" class="qty" name="qty1">											
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong>170.00 $</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="order-data order-table text-center">
+                                            <div class="order-table-cell order-text">
+                                                <strong><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!--//== Order Billing and shipping Section End ==//-->  	
-        <!--//== Place Order Start ==//-->  
+        <!--//==Order Section End==//-->
+        <!--//== Order Price Section Start ==//-->
         <section class="cart-page padB100">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 wv_subtotal">
-                        <!--//== Section Heading Start ==//-->
+                    <!--//== Apply Coupon Section Start ==//-->
+                    <div class="col-xs-12 col-sm-6 col-md-5 wv_shipping_outer">
+                        <!--//==Section Heading Start==//-->
                         <div class="left-title">
-                            <h2>Order Detail <span class="heading-border"></span></h2>
+                            <h2>Apply Coupon<span class="heading-border"></span></h2>
                             <div class="clear"></div>
                         </div>
-                        <!--//== Section Heading End ==//-->
-                        <!--//== Total Price Section Start ==//-->
+                        <!--//==Section Heading End==//-->
+                        <div class="wv_shipping responsive_coupon grey-bg">
+                            <div class="wv_subtotaling marB20">
+                                <div class="col-xs-12 col-md-12  wv_subtotal_left textL">
+                                    <p>Enter Coupon Code</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <form class="contact-form">
+                                    <!--//==Contact Input Field==//-->
+                                    <div class="col-md-12 form-group wv_form_field marB30">
+                                        <input class="wv_form_focus" type="text" placeholder="Example 'B589276A'">
+                                    </div>
+                                    <div class="col-md-12 wv_form_field">
+                                        <button type="submit" class="theme-button col-xs-12 marT0">apply code</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//== Apply Coupon Section End ==//-->
+                    <!--//== Price Calculation Section Start ==//-->
+                    <div class="col-xs-12 col-sm-6 col-md-7 wv_subtotal">
+                        <!--//==Section Heading Start==//-->
+                        <div class="left-title">
+                            <h2>Price Calculation<span class="heading-border"></span></h2>
+                            <div class="clear"></div>
+                        </div>
+                        <!--//==Section Heading End==//-->
                         <div class="wv_shipping">
-                            <div class="wv_subtotaling wv_checkout_subtotal">
-                                <div class="col-xs-6 col-md-6 wv_subtotal_left textL">
-                                    <p>Products</p>
-                                </div>
-                                <div class="col-xs-6 col-md-6 wv_subtotal_right textR">
-                                    <p>Total</p>
-                                </div>
-                            </div>
-                            <div class="wv_subtotaling wv_checkout_subtotal1 padT10">
-                                <div class="col-xs-6 col-md-6 wv_subtotal_left textL">
-                                    <span>product Name Here x 1</span>
-                                </div>
-                                <div class="col-xs-6 col-md-6 wv_subtotal_right textR">
-                                    <span>$170.00</span>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="col-xs-6 col-md-6 wv_subtotal_left textL">
-                                    <span>product Name Here x 1</span>
-                                </div>
-                                <div class="col-xs-6 col-md-6 wv_subtotal_right textR">
-                                    <span>$170.00</span>
-                                </div>
-                            </div>
                             <div class="wv_subtotaling">
                                 <div class="col-xs-6 col-md-6 wv_subtotal_left textL">
                                     <p>subtotal</p>
@@ -598,54 +648,21 @@
                                     <p>$325.00</p>
                                 </div>
                             </div>
-                            <div class="clear"></div>
-                        </div>
-                        <!--//== Total Price Section End ==//-->
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 wv_subtotal">
-                        <!--//== Section Heading Start ==//-->
-                        <div class="left-title">
-                            <h2>Payment method <span class="heading-border"></span></h2>
-                            <div class="clear"></div>
-                        </div>
-                        <!--//== Section Heading End ==//-->
-                        <!--//== Total Price Section Start ==//-->
-                        <div class="wv_shipping">
-                            <div class="wv_subtotaling wv_checkout_subtotal1">
-                                <div class="checkout-payment" id="payment">
-                                    <ul class="payment_methods methods">
-                                        <li>
-                                            <span>Nam ac egestas est. Mauris et pulvinar risus, at tincidunt lorem. Maecenas
-                                            tristique sit amet odio sit amet aliquet.</span>
-                                        </li>
-                                        <li class="payment_method_cheque">
-                                            <input type="radio"  value="cheque" name="payment_method" class="input-radio" id="payment_method_cheque">
-                                            <label for="payment_method_cheque">Cheque Payment </label>
-                                        </li>
-                                        <li class="payment_method_paypal">
-                                            <input type="radio"  value="paypal" name="payment_method" class="input-radio" id="payment_method_paypal">
-                                            <label for="payment_method_paypal">PayPal <a title="What is PayPal?" class="about_paypal" href="#"> What is PayPal?</a>
-                                            </label>
-                                        </li>
-                                        <li class="payment_method_cod">
-                                            <input type="radio" value="cod" name="payment_method" class="input-radio" id="payment_method_cod">
-                                            <label for="payment_method_cod">Cash On Delivery 
-                                            </label>
-                                        </li>
-                                    </ul>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6 wv_checkout wv_form_field">							   
+                                    <button type="submit" class="theme-button col-xs-12 marT0">checkout</button>
                                 </div>
-                                <div class="clear"></div>
-                            </div>
-                            <!--//== Total Price Section End ==//-->
-                            <div class="wv_checkout wv_form_field1 responsive_field1">
-                                <button type="submit" class="theme-button col-xs-12 marT0">Place Order</button>
+                                <div class="col-xs-12 col-md-6 wv_checkout wv_form_field1 responsive_field1">
+                                    <button type="submit" class="theme-button col-xs-12 marT0">continue ordeing </button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!--//== Price Calculation Section End ==//-->
                 </div>
             </div>
         </section>
-        <!--//== Place Order End ==//-->
+        <!--//== Order Price Section End ==//-->
         <!--//=========instagram-gallery start=========//-->	
         <div class="instagram-gallery page_single">
             <div class="container-fluid">
@@ -754,7 +771,7 @@
                 </div>
             </div>
         </div>
-        <!--//=========instagram-gallery end=========//-->		
+        <!--//=========instagram-gallery end=========//-->
         <!--//=========Footer Start=========//-->
         <footer id="main-footer" class="dark-footer footer-style1">
             <!--Upper Footer Block-->
@@ -861,7 +878,7 @@
                 </div>
             </div>
         </footer>
-        <!--//=========Footer End=========//-->	 
+        <!--//=========Footer End=========//-->	 	
         <!--//=========Newsletter Popup Start =========//-->	 
         <section id="newsLetterPopup" class="news-letter-popup">
             <div class="container">
@@ -892,7 +909,7 @@
                 </div>
             </div>
         </section>
-        <!--//=========Newsletter Popup End=========//-->  
+        <!--//=========Newsletter Popup End=========//-->   
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="assets/js/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -903,5 +920,5 @@
         <script src="assets/js/main.js"></script>
     </body>
 
-<!-- Mirrored from webaashi.com/TF/html/aashi-fashion-shop-html/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jul 2024 13:47:36 GMT -->
+<!-- Mirrored from webaashi.com/TF/html/aashi-fashion-shop-html/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jul 2024 13:47:36 GMT -->
 </html>
