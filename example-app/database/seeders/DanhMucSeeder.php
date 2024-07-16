@@ -8,7 +8,6 @@ use Faker\Factory as Faker;
 
 class DanhMucSeeder extends Seeder
 {
-    //hýhjdj 
     public function run(): void
     {
         $faker = Faker::create();
