@@ -6,15 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    
     public function up(): void
     {
         Schema::create('san_phams', function (Blueprint $table) {
-            $table->id('id_san_pham')->unique();
+            $table->bigIncrements('id_san_pham');
             $table->string('ten_san_pham')->unique();
-            $table->string('hinh_anh')->nullable();  
+            $table->image('hinh_anh')->nullable();  
             $table->double('gia', 10, 2);
             $table->unsignedInteger('so_luong'); 
             $table->date('ngay_nhap');
