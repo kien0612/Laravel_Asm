@@ -18,7 +18,6 @@ class KhuyenMaiSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Seed khuyen_mais table
         for ($i = 0; $i < 10; $i++) {
             $ngayBatDau = $faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d');
             $ngayKetThuc = $faker->dateTimeBetween($ngayBatDau, '+1 month')->format('Y-m-d');

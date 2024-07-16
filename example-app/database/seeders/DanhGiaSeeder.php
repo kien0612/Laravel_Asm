@@ -18,11 +18,9 @@ class DanhGiaSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Get IDs of users and products for foreign key references
         $nguoiDungIds = DB::table('nguoi_dungs')->pluck('id_nguoi_dung')->toArray();
         $sanPhamIds = DB::table('san_phams')->pluck('id_san_pham')->toArray();
 
-        // Seed danh_gias table
         for ($i = 0; $i < 10; $i++) {
             $ngayDanhGia = $faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d');
 

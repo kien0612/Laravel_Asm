@@ -18,10 +18,9 @@ class ThanhToanSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Get IDs of invoices for foreign key references
         $hoaDonIds = DB::table('hoa_dons')->pluck('id_hoa_don')->toArray();
 
-        // Seed thanh_toans table
+        
         for ($i = 0; $i < 10; $i++) {
             $ngayThanhToan = $faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d');
 

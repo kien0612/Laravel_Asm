@@ -22,7 +22,7 @@ class GioHangSeeder extends Seeder
         $nguoiDungIds = DB::table('nguoi_dungs')->pluck('id_nguoi_dung')->toArray();
         $sanPhamIds = DB::table('san_phams')->pluck('id_san_pham')->toArray();
 
-        // Seed gio_hangs table
+        
         for ($i = 0; $i < 10; $i++) {
             DB::table('gio_hangs')->insert([
                 'so_luong' => $faker->numberBetween(1, 10),

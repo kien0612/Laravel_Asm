@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('san_phams', function (Blueprint $table) {
             $table->bigIncrements('id_san_pham');
             $table->string('ten_san_pham')->unique();
-            $table->image('hinh_anh')->nullable();  
+            $table->string('hinh_anh')->nullable();  
             $table->double('gia', 10, 2);
             $table->unsignedInteger('so_luong'); 
             $table->date('ngay_nhap');

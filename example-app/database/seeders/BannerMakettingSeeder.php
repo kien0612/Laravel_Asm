@@ -18,7 +18,6 @@ class BannerMakettingSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Seed banner_makettings table
         for ($i = 0; $i < 10; $i++) {
             DB::table('banner_makettings')->insert([
                 'ten_banner' => $faker->word,

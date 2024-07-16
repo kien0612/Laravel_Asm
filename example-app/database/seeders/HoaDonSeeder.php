@@ -18,12 +18,11 @@ class HoaDonSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Get IDs of users, products, and promotions for foreign key references
         $nguoiDungIds = DB::table('nguoi_dungs')->pluck('id_nguoi_dung')->toArray();
         $sanPhamIds = DB::table('san_phams')->pluck('id_san_pham')->toArray();
         $khuyenMaiIds = DB::table('khuyen_mais')->pluck('id_khuyen_mai')->toArray();
 
-        // Seed hoa_dons table
+        
         for ($i = 0; $i < 10; $i++) {
             $ngayDat = $faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d');
             $soLuong = $faker->numberBetween(1, 10);

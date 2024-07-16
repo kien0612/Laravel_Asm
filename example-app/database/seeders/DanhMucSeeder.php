@@ -4,33 +4,23 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class DanhMucSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    //hýhjdj 
+    public function run(): void
     {
-        // Dữ liệu mẫu danh mục
-        $danhMucs = [
-            [
-                'ten_danh_muc' => 'Danh mục 1',
-                'mo_ta' => 'Mô tả danh mục 1',
-            ],
-            [
-                'ten_danh_muc' => 'Danh mục 2',
-                'mo_ta' => 'Mô tả danh mục 2',
-            ],
-            [
-                'ten_danh_muc' => 'Danh mục 3',
-                'mo_ta' => 'Mô tả danh mục 3',
-            ],
-        ];
+        $faker = Faker::create();
 
-        // Insert dữ liệu vào bảng danh_mucs
-        DB::table('danh_mucs')->insert($danhMucs);
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('danh_mucs')->insert([
+                'ten_danh_muc' => $faker->name,
+                'mo_ta' => $faker->text,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        
+        }
     }
 }
