@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
