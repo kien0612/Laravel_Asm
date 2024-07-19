@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
-
+use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
 
 
 /*
@@ -28,3 +28,6 @@ Route::get('productdetail', [Nguoidungcontroller::class, 'productdetail'])->name
 Route::get('contact', [Nguoidungcontroller::class, 'contact'])->name('contact');
 Route::get('404', [Nguoidungcontroller::class, 'a404'])->name('404');
 Route::get('defaultpage', [Nguoidungcontroller::class, 'defaultpage'])->name('defaultpage');
+
+//
+Route::get('Admin', [Admincontroller::class, 'admin'])->name('admin');
