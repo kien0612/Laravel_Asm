@@ -1854,7 +1854,7 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                {{-- <div class="container-fluid">
 
                     <div class="row">
                         <div class="col">
@@ -3131,8 +3131,10 @@
                         </div> <!-- end col -->
                     </div>
 
-                </div>
-              
+                </div> --}}
+                <div class="container">
+                    @yield('content')
+                  </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->

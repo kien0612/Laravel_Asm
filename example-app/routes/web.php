@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\DanhmucController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
 use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
@@ -31,3 +32,7 @@ Route::get('defaultpage', [Nguoidungcontroller::class, 'defaultpage'])->name('de
 
 //
 Route::get('Admin', [Admincontroller::class, 'admin'])->name('admin');
+
+
+//crud danh muc
+Route::resource('danhmuc', DanhmucController::class);
