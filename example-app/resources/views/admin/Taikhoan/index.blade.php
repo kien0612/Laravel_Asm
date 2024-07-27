@@ -1,6 +1,8 @@
 @extends('admin.layout');
 @section('content')
-<a  class="btn btn-dark" href="{{ route('admin.danhmuc.create')}}">Theem moi</a>
+
+<a  class="btn btn-dark" href="{{ route('danhmuc.create')}}">Theem moi</a>
+<h1>ba</h1>
 <table class="table">
     <thead>
       <tr>
@@ -20,12 +22,12 @@
            
             <td>{{ $v->mo_ta }}</td>
             <td>
-              <form action="{{route('admin.danhmuc.destroy',$v->id_danh_muc)}}" method="post">
+              <form action="{{route('danhmuc.destroy',$v->id_danh_muc)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button onclick="return confirm('Ban co muon xoa khong')" class="btn btn-danger" type="submit">Xoa</button>
               </form>
-              <a href="{{route('admin.danhmuc.edit',$v->id_danh_muc)}}" class="btn btn-primary">Sua</a>
+              <a href="{{route('danhmuc.edit',$v->id_danh_muc)}}" class="btn btn-primary">Sua</a>
           </td>
           
         </tr> 

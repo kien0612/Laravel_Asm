@@ -4,7 +4,7 @@
 @section('content')
 <h1>Thêm mới danh muc</h1>
 <br>
-<form action="{{route('danhmuc.store')}}" method="POST">
+<form action="{{route('admin.danhmuc.store')}}" method="POST">
     @csrf
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Name</label>

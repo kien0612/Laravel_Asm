@@ -35,4 +35,14 @@ Route::get('Admin', [Admincontroller::class, 'admin'])->name('admin');
 
 
 //crud danh muc
-Route::resource('danhmuc', DanhmucController::class);
+// Route::resource('danhmuc', DanhmucController::class);
+// http://127.0.0.1:8000/admin/danhmuc
+route::group(
+  [
+    'prefix'=>'admin',
+    'as'=>'admin.'
+  ], function(){
+    Route::resource('danhmuc', DanhmucController::class);
+  }
+    
+);

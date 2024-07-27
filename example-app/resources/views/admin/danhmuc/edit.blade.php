@@ -3,7 +3,7 @@
 @section('content')
 <h1>Sửa danh muc</h1>
 <br>
-<form action="{{route('danhmuc.update' , $danhmuc->id_danh_muc)}}" method="post">
+<form action="{{route('admin.danhmuc.update' , $danhmuc->id_danh_muc)}}" method="post">
     @csrf
     @method("PUT")
     <div class="mb-3">
