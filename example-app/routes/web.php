@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admins\DanhmucController;
+use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
 use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,14 @@ Route::get('defaultpage', [Nguoidungcontroller::class, 'defaultpage'])->name('de
 
 //
 Route::get('Admin', [Admincontroller::class, 'admin'])->name('admin');
+
+//login checkut
+Route::get('login', [AuthenticationController::class, 'login'])->name('login');
+Route::post('post-login', [AuthenticationController::class, 'postlogin'])->name('postlogin');
+
+
+
+
 
 
 //crud danh muc
