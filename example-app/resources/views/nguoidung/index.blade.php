@@ -44,6 +44,10 @@
         <!--//==Preloader End==//-->  
         <!--//==Header Start==//-->
         <header id="main-header">
+            @if (session('message'))
+            <p class="text-bg-danger">{{session('message')}}</p>
+                
+            @endif
             <!--//==Topbar Start==//-->
             <div id="top-bar" class="hidden-xs">
                 <div class="container">

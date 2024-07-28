@@ -22,12 +22,14 @@ class AuthenticationController extends Controller
       ];
       $remember = $req->has('remember');
       if(Auth::attempt($dataUserLogin,$remember)){
-        if(Auth::User()->vai_tro=='1'){
-            return view('admin.index');
-        }else if(Auth::User()->vai_tro== '2'){
-            echo "nhan vien";
-        }else if(Auth::User()->vai_tro=='3'){
-          return view('nguoidung.index');
+        if(Auth::user()->vai_tro=='1'){
+            return redirect()->route('admin.admin');
+        }else  if(Auth::user()->vai_tro=='2'){
+         echo"helo";
+      }else{
+          return redirect()->route('/')->with([
+            'message'=>'thanh công ' 
+         ]);;
         }
 
       }else{

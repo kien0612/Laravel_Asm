@@ -17,17 +17,16 @@ class CheckAdminMiddlware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-          if(Auth::User()->vai_tro== '1'){
-            return $next($request);
-          }else 
-          if(Auth::User()->vai_tro== '2'){
-            return $next($request);
-          }else
-          if(Auth::User()->vai_tro== '3'){
-            return $next($request);
+          if(Auth::user()->vai_tro== '1'){
+           return $next($request);
+          }else  if(Auth::user()->vai_tro== '2'){
+            return  redirect()->route('/');
+           }else{
+            // return $next($request);
+            return  redirect()->route('login');
           }
         }else{
-            return redirect()->route('login')->with([
+            return redirect()->route('404')->with([
                 'message'=>"Bạn phải đăng nhập vào !!"
             ]);
         }
