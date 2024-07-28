@@ -29,14 +29,15 @@ Route::get('productdetail', [Nguoidungcontroller::class, 'productdetail'])->name
 Route::get('contact', [Nguoidungcontroller::class, 'contact'])->name('contact');
 Route::get('404', [Nguoidungcontroller::class, 'a404'])->name('404');
 Route::get('defaultpage', [Nguoidungcontroller::class, 'defaultpage'])->name('defaultpage');
-
+Route::get('register', [Nguoidungcontroller::class, 'register'])->name('register');
 //
-Route::get('Admin', [Admincontroller::class, 'admin'])->name('admin');
+// Route::get('Admin', [Admincontroller::class, 'admin'])->name('admin');
 
 //login checkut
 Route::get('login', [AuthenticationController::class, 'login'])->name('login');
 Route::post('post-login', [AuthenticationController::class, 'postlogin'])->name('postlogin');
-
+Route::get('logout', [AuthenticationController::class, 'logout'])->name('logout');
+Route::post('postdanhky', [AuthenticationController::class, 'postdanhky'])->name('postdanhky');
 
 
 
@@ -48,8 +49,10 @@ Route::post('post-login', [AuthenticationController::class, 'postlogin'])->name(
 route::group(
   [
     'prefix'=>'admin',
-    'as'=>'admin.'
+    'as'=>'admin.',
+    'middleware' =>'checkAdmin'
   ], function(){
+    Route::get('admin', [Admincontroller::class, 'admin'])->name('admin');
     Route::resource('danhmuc', DanhmucController::class);
   }
     

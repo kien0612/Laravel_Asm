@@ -47,4 +47,8 @@ class Nguoidungcontroller extends Controller
     {
         return view('nguoidung.defaultpage');
     }
+    public function register()
+    {
+        return view('nguoidung.register');
+    }
 }

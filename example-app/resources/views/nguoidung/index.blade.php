@@ -123,7 +123,7 @@
                                                 <a href="#">Track Order</a>
                                             </li>
                                             <li class="clearfix">
-                                                <a href="#">Logout</a>
+                                                <a href="{{ route('logout') }}">Logout</a>
                                             </li>
                                         </ul>
                                     </div>

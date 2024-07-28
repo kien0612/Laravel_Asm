@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
 
 class AuthenticationController extends Controller
 {
@@ -19,19 +20,49 @@ class AuthenticationController extends Controller
         'email'=> $req->email,
         'password'=> $req->password,
       ];
-      if(Auth::attempt($dataUserLogin)){
+      $remember = $req->has('remember');
+      if(Auth::attempt($dataUserLogin,$remember)){
         if(Auth::User()->vai_tro=='1'){
             return view('admin.index');
         }else if(Auth::User()->vai_tro== '2'){
             echo "nhan vien";
-        }else{
-            return view('nguoidung.index');
+        }else if(Auth::User()->vai_tro=='3'){
+          return view('nguoidung.index');
         }
 
       }else{
         return redirect()->back()->with([
-           'message'=>'Eamil khong dung vui long dang nhap laij' 
+           'message'=>'Email hoặc Mật khẩu không đúng vui lòng nhập lại !!' 
         ]);
       }
     }
+    public function logout(){
+      Auth::logout();
+        return redirect()->route('login')->with([
+          'message'=>'Đăng xuất thành công !!' 
+       ]);
+      
+      }
+
+    public function postdanhky(Request $req){
+      $check = User::where('email',$req ->email)->exists();
+      if($check){
+        return redirect()->back()->with(
+        [
+          'message'=>'Tài khoản đã tồn tại !!' 
+        ]
+        );
+        
+      }else{
+        $data=[ 
+          'name' => $req ->name,
+          'email' => $req ->email,
+          'password' =>Hash::make($req ->password)
+        ];
+        $newUser= User::create($data);
+        return redirect()->route('login')->with([
+          'message'=>'Đăng ký thàng công vui lòng đăng nhập vào !!' 
+       ]);
+      }
+    }  
 }

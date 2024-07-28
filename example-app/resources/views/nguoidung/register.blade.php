@@ -11,17 +11,20 @@
             <!--//==Login Section Start==//-->
             <div class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2 col-xs-offset-0">
                 <div class="centered-title">
-                    <h2>Sign In <span class="heading-border"></span></h2>
+                    <h2>Đăng ký<span class="heading-border"></span></h2>
                     <div class="clear"></div>
-                    <em>doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo <br>inventore veritatis et quasi architecto beatae</em>
+                    <em>Chán không muốn nói !!</em>
                 </div>
                 <!--//==Form Start==//-->
                 @if (session('message'))
                    <p class="text-bg-danger">{{session('message')}}</p>
-                       
                    @endif
-                <form action="{{route('postlogin')}}" method="post" class="login-form">
+                <form action="{{route('postdanhky')}}" method="post" class="login-form">
                     @csrf
+                    <p class="form-row pd-right">
+                        <label for="username">Nhập name <span class="required">*</span></label>
+                        <input type="text" name="name" id="username" class="form-controller"  placeholder="Nhập name vào !" {{{old('name')}}} >
+                    </p>
                     <p class="form-row pd-right">
                         <label for="username">Nhập Email <span class="required">*</span></label>
                         <input type="email" name="email" id="username" class="form-controller"  placeholder="Nhập email vào !" {{{old('email')}}} >
@@ -30,18 +33,14 @@
                         <label for="password">Passwords <span class="required">*</span></label>
                         <input type="text" name="password" id="password" class="form-controller"  placeholder="Nhập mật Khẩu vào" >
                     </p>
-                    <p class="form-row pd-left">
-                        
-                        <input type="checkbox" name="remember"  >
-                        <label for="remember">Nhớ mật khẩu</label>
-                    </p>
+                   
                   
                     <p class="form-row">
-                        <button  class="theme-button col-md-12 marB20">Login</button>
+                        <button  class="theme-button col-md-12 marB20">Đăng ký</button>
                                            
                     </p>
                     <p class="lost_password">
-                        <a href="#">Quyên mật khẩu ??</a>------<a href="{{ route('register') }}">Đăng Ký</a>
+                        <a href="#">Quyên mật khẩu ??</a>------<a href="{{ route('login') }}">Đăng Nhập</a>
                     </p>  
                 </form>
                 <!--//==Form End==//-->
