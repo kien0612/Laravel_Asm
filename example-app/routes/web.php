@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admins\DanhmucController;
+use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
+use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +29,31 @@ Route::get('productdetail', [Nguoidungcontroller::class, 'productdetail'])->name
 Route::get('contact', [Nguoidungcontroller::class, 'contact'])->name('contact');
 Route::get('404', [Nguoidungcontroller::class, 'a404'])->name('404');
 Route::get('defaultpage', [Nguoidungcontroller::class, 'defaultpage'])->name('defaultpage');
+Route::get('register', [Nguoidungcontroller::class, 'register'])->name('register');
+//
+// Route::get('Admin', [Admincontroller::class, 'admin'])->name('admin');
+
+//login checkut
+Route::get('login', [AuthenticationController::class, 'login'])->name('login');
+Route::post('post-login', [AuthenticationController::class, 'postlogin'])->name('postlogin');
+Route::get('logout', [AuthenticationController::class, 'logout'])->name('logout');
+Route::post('postdanhky', [AuthenticationController::class, 'postdanhky'])->name('postdanhky');
+
+
+
+
+
+//crud danh muc
+// Route::resource('danhmuc', DanhmucController::class);
+// http://127.0.0.1:8000/admin/danhmuc
+route::group(
+  [
+    'prefix'=>'admin',
+    'as'=>'admin.',
+    'middleware' =>'checkAdmin'
+  ], function(){
+    Route::get('admin', [Admincontroller::class, 'admin'])->name('admin');
+    Route::resource('danhmuc', DanhmucController::class);
+  }
+    
+);

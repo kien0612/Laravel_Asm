@@ -44,6 +44,10 @@
         <!--//==Preloader End==//-->  
         <!--//==Header Start==//-->
         <header id="main-header">
+            @if (session('message'))
+            <p class="text-bg-danger">{{session('message')}}</p>
+                
+            @endif
             <!--//==Topbar Start==//-->
             <div id="top-bar" class="hidden-xs">
                 <div class="container">
@@ -123,7 +127,7 @@
                                                 <a href="#">Track Order</a>
                                             </li>
                                             <li class="clearfix">
-                                                <a href="#">Logout</a>
+                                                <a href="{{ route('logout') }}">Logout</a>
                                             </li>
                                         </ul>
                                     </div>

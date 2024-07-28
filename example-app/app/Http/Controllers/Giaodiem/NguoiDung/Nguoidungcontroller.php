@@ -18,10 +18,7 @@ class Nguoidungcontroller extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function login()
-    {
-        return view('nguoidung.login');
-    }
+ 
     public function product()
     {
         return view('nguoidung.product');
@@ -49,5 +46,9 @@ class Nguoidungcontroller extends Controller
     public function defaultpage()
     {
         return view('nguoidung.defaultpage');
+    }
+    public function register()
+    {
+        return view('nguoidung.register');
     }
 }
