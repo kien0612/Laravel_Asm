@@ -87,9 +87,40 @@ class KhuyenmaiControoller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id_khuyen_mai)
     {
-        //
+      
+        $validated = $request->validate(
+            [
+                'ten_khuyen_mai' => ['required'],
+                'phan_tram_giam_gia' => ['numeric', 'min:0', 'max:100'],
+                'mo_ta' => ['nullable', 'string'],
+                'ngay_bat_dau' => ['required', 'date'],
+                'ngay_ket_thuc' => ['required', 'date', 'after_or_equal:ngay_bat_dau'],
+            ],
+            [
+                'ten_khuyen_mai.required' => 'Tên khuyến mại là bắt buộc.',
+                'phan_tram_giam_gia.numeric' => 'Phần trăm giảm giá phải là số.',
+                'phan_tram_giam_gia.min' => 'Phần trăm giảm giá không được nhỏ hơn 0.',
+                'phan_tram_giam_gia.max' => 'Phần trăm giảm giá không được lớn hơn 100.',
+                'ngay_bat_dau.required' => 'Ngày bắt đầu là bắt buộc.',
+                'ngay_bat_dau.date' => 'Ngày bắt đầu phải là ngày hợp lệ.',
+                'ngay_ket_thuc.required' => 'Ngày kết thúc là bắt buộc.',
+                'ngay_ket_thuc.date' => 'Ngày kết thúc phải là ngày hợp lệ.',
+                'ngay_ket_thuc.after_or_equal' => 'Ngày kết thúc phải sau hoặc bằng ngày bắt đầu.',
+            ]
+        );
+        
+        DB::table('khuyen_mais')->where('id_khuyen_mai', $id_khuyen_mai)->update([
+            'ten_khuyen_mai' => $request->ten_khuyen_mai,
+            'phan_tram_giam_gia' => $request->phan_tram_giam_gia,
+            'mo_ta' => $request->mo_ta,
+            'ngay_bat_dau' => $request->ngay_bat_dau,
+            'ngay_ket_thuc' => $request->ngay_ket_thuc,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+        
+        return redirect()->route('admin.khuyenmai.index')->with('success', 'Cập nhật khuyến mại thành công.');
     }
 
     /**
