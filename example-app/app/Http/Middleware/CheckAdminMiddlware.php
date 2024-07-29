@@ -20,7 +20,9 @@ class CheckAdminMiddlware
           if(Auth::user()->vai_tro== '1'){
            return $next($request);
           }else  if(Auth::user()->vai_tro== '2'){
-            return  redirect()->route('/');
+            return $next($request);
+            // return redirect()->route('nhanvien.nhanvien');.
+            
            }else{
             // return $next($request);
             return  redirect()->route('login');

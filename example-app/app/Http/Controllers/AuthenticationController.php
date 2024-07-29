@@ -25,7 +25,7 @@ class AuthenticationController extends Controller
         if(Auth::user()->vai_tro=='1'){
             return redirect()->route('admin.admin');
         }else  if(Auth::user()->vai_tro=='2'){
-         echo"helo";
+          return redirect()->route('nhanvien');
       }else{
           return redirect()->route('/')->with([
             'message'=>'thanh công ' 

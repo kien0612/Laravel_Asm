@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admins\DanhmucController;
+use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
 use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
+use App\Http\Controllers\Giaodien\Nhanvien\nhanviencontroller;
+use App\Http\Controllers\Nhanviens\danhmuccontroller as NhanviensDanhmuccontroller;
+use App\Http\Controllers\Nhanviens\danhmucnhanvienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +58,19 @@ route::group(
   ], function(){
     Route::get('admin', [Admincontroller::class, 'admin'])->name('admin');
     Route::resource('danhmuc', DanhmucController::class);
+    Route::resource('khuyenmai', KhuyenmaiControoller::class);
   }
     
+);
+
+route::group(
+  [
+    'prefix'=>'nhanvien',
+    'as'=>'nhanvien.',
+    'middleware' =>'checkAdmin'
+  ], function(){
+    Route::get('/', [danhmucnhanvienController::class, 'nhanvien'])->name('nhanvien');
+    Route::resource('danhmucnv', danhmucnhanvienController::class);
+  }
+
 );
