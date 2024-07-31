@@ -880,35 +880,7 @@
         </footer>
         <!--//=========Footer End=========//-->	 	
         <!--//=========Newsletter Popup Start =========//-->	 
-        <section id="newsLetterPopup" class="news-letter-popup">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
-                        <div class="popup-inner">
-                            <a href="#" class="close-news-letter"><i class="fa fa-times"></i></a>							
-                            <div class="special-style col-md-offset-0 pull-right">
-                                <div class="bg-image" style="background-image:url('assets/img/backgrounds/bg4.jpg');"></div>
-                            </div>
-                            <div class="popup-content">
-                                <div class="col-md-5 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-12 col-xs-offset-0 marT100 marB100 popup-data">
-                                    <div class="left-title">
-                                        <h2>Sign Up For Newsletter <span class="heading-border"></span></h2>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <div class="clear"></div>
-                                    <p>dNam ac egestas est. Mauris et pulvinar risus, at tincidunt . Maecenas tristique sit</p>
-                                    <form class="wa-news-letter marT10 marB10">
-                                        <input type="text" name="search" placeholder="Search..">
-                                        <button type="submit" class="default-btn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                                    </form>
-                                    <div class="popup-showout"><input id="stop-popup" type="checkbox" name="stop-popup" value="stop-popup"><label for="stop-popup"> Do not show popup again<span></span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
         <!--//=========Newsletter Popup End=========//-->   
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="assets/js/jquery.min.js"></script>
