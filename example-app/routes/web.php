@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admins\BannerMakettingController;
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
+use App\Http\Controllers\Admins\SamphamController;
 use App\Http\Controllers\Admins\DanhGiaController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Nhanviens\BannerMakettingController;
 use App\Http\Controllers\Nhanviens\ThanhToanController;
 use App\Http\Controllers\Nhanviens\GioHangController;
 use App\Http\Controllers\Nhanviens\HoaDonController;
+
 
 
 /*
@@ -68,11 +70,9 @@ route::group(
     Route::get('admin', [Admincontroller::class, 'admin'])->name('admin');
     Route::resource('danhmuc', DanhmucController::class);
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
-   
+    Route::resource('sampham', SamphamController::class);
     Route::resource('banner', BannerMakettingController::class);
-
     Route::resource('danhgia', DanhGiaController::class);
-
   }
  
 );
