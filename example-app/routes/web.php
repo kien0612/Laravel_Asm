@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admins\BannerMakettingController;
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
+use App\Http\Controllers\Admins\DanhGiaController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
@@ -61,6 +62,7 @@ route::group(
     Route::resource('danhmuc', DanhmucController::class);
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
     Route::resource('banner', BannerMakettingController::class);
+    Route::resource('danhgia', DanhGiaController::class);
   }
     
 );

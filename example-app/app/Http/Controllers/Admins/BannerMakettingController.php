@@ -117,7 +117,7 @@ class BannerMakettingController extends Controller
             // Lưu hình ảnh mới
             $file = $request->file('hinh_anh');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $imagePath = $file->storeAs('uploads/banner_makettings', $fileName, 'public');
+            $imagePath = $file->storeAs('banner_makettings', $fileName, 'public');
         } else {
             $imagePath = $banner->hinh_anh;
         }
