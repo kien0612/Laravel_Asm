@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admins\BannerMakettingController;
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\Admins\SamphamController;
+use App\Http\Controllers\Admins\DanhGiaController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
@@ -10,6 +12,11 @@ use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
 use App\Http\Controllers\Giaodien\Nhanvien\nhanviencontroller;
 use App\Http\Controllers\Nhanviens\danhmuccontroller as NhanviensDanhmuccontroller;
 use App\Http\Controllers\Nhanviens\danhmucnhanvienController;
+use App\Http\Controllers\Nhanviens\BannerMakettingController;
+use App\Http\Controllers\Nhanviens\ThanhToanController;
+use App\Http\Controllers\Nhanviens\GioHangController;
+use App\Http\Controllers\Nhanviens\HoaDonController;
+
 
 
 /*
@@ -64,18 +71,47 @@ route::group(
     Route::resource('danhmuc', DanhmucController::class);
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
     Route::resource('sampham', SamphamController::class);
+    Route::resource('banner', BannerMakettingController::class);
+    Route::resource('danhgia', DanhGiaController::class);
   }
  
 );
 
 route::group(
   [
-    'prefix'=>'nhanvien',
-    'as'=>'nhanvien.',
-    'middleware' =>'checkAdmin'
-  ], function(){
-    Route::get('/', [danhmucnhanvienController::class, 'nhanvien'])->name('nhanvien');
-    Route::resource('danhmucnv', danhmucnhanvienController::class);
-  }
+    'prefix' => 'nhanvien',
+    'as' => 'nhanvien.',
+    // 'middleware' => 'checkAdmin'
+],
+function () {
+    // Route để truy cập trang chính của nhân viên
+    Route::get('/', [danhmucnhanvienController::class, 'nhanvien'])->name('index');
 
-);
+    // Route để truy cập danh sách danh mục dưới nhân viên
+    Route::get('danhmuc', [danhmucnhanvienController::class, 'index'])->name('danhmuc.index');
+
+    // Route để hiển thị biểu mẫu tạo danh mục mới
+    Route::get('danhmuc/create', [danhmucnhanvienController::class, 'create'])->name('danhmuc.create');
+
+    // // Route để lưu trữ danh mục mới
+    Route::post('danhmuc', [danhmucnhanvienController::class, 'store'])->name('danhmuc.store');
+
+    // // Route để hiển thị thông tin chi tiết của một danh mục cụ thể
+    Route::get('danhmuc/{id}', [danhmucnhanvienController::class, 'show'])->name('danhmuc.show');
+
+    // // Route để hiển thị biểu mẫu chỉnh sửa một danh mục cụ thể
+    Route::get('danhmuc/{id}/edit', [danhmucnhanvienController::class, 'edit'])->name('danhmuc.edit');
+
+    // // Route để cập nhật một danh mục cụ thể
+    Route::put('danhmuc/{id}', [danhmucnhanvienController::class, 'update'])->name('danhmuc.update');
+
+    // // Route để xóa một danh mục cụ thể
+    Route::delete('danhmuc/{id}', [danhmucnhanvienController::class, 'destroy'])->name('danhmuc.destroy');
+
+    Route::resource('banner', BannerMakettingController::class);
+    Route::resource('thanh_toan', ThanhToanController::class);
+    Route::resource('gio_hang', GioHangController::class);
+    Route::resource('hoa_don', HoaDonController::class);
+}
+
+)->withoutMiddleware(TrimStrings::class);
