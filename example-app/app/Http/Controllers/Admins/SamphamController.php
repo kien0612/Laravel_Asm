@@ -105,10 +105,10 @@ class SamphamController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id_san_pham)
     {
         $danhmucs= DB::table('danh_mucs')->get();
-        $sampham = DB::table('san_phams')->where('id_san_pham', $id)->first();
+        $sampham = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
         return view('admin.Sampham.edit', compact('sampham', 'danhmucs'));
     }
 

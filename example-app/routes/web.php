@@ -27,6 +27,8 @@ use App\Http\Controllers\Nhanviens\danhmucnhanvienController;
 //     return view('welcome');
 // });
 Route::get('/', [Nguoidungcontroller::class, 'index'])->name('/');
+Route::get('/{id_san_phan}/edit', [Nguoidungcontroller::class ,'quickview'])->name('edit')->where('id_san_pham', '[0-9]+');
+
 Route::get('login', [Nguoidungcontroller::class, 'login'])->name('login');
 Route::get('product', [Nguoidungcontroller::class, 'product'])->name('product');
 Route::get('checkout', [Nguoidungcontroller::class, 'checkout'])->name('checkout');

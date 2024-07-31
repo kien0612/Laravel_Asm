@@ -15,16 +15,14 @@
         <th scope="col">Giá</th>
         <th scope="col">Số Lượng</th>
         <th scope="col">Ngày nhập hàng</th>
-        <th scope="col">Danh mục</th>
+        <th scope="col">Mô tả</th>
         <th scope="col">Danh mục</th>
         <th scope="col">Trang Thái đơn hành</th>
         <th scope="col">acc</th>
       </tr>
     </thead>
     <tbody>
-     
         @foreach ($sampham as $v)
-       
         <tr>
             <td>{{ $v->id_san_pham  }}</td>
             <td>{{ $v->ten_san_pham  }}</td>
