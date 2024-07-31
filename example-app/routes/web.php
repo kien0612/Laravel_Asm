@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\BannerMakettingController;
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\Admins\SamphamController;
@@ -68,6 +69,8 @@ route::group(
     Route::resource('danhmuc', DanhmucController::class);
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
     Route::resource('sampham', SamphamController::class);
+    Route::resource('banner', BannerMakettingController::class);
+
   }
  
 );
