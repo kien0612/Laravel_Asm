@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\BannerMakettingController;
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\AuthenticationController;
@@ -59,6 +60,7 @@ route::group(
     Route::get('admin', [Admincontroller::class, 'admin'])->name('admin');
     Route::resource('danhmuc', DanhmucController::class);
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
+    Route::resource('banner', BannerMakettingController::class);
   }
     
 );
