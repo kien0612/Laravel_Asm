@@ -36,10 +36,6 @@ class SamphamController extends Controller
      * Store a newly created resource in storage.
      */
 
-     private function uploadFile($file){
-        $fileName = time()."_".$file->getClientOriginalName();
-        return $file->storeAs('image_products', $fileName, 'public');
-     }
      public function store(Request $request  )
      {
         
@@ -49,7 +45,7 @@ class SamphamController extends Controller
                     'gia' => 'required|numeric|min:0',
                     'so_luong' => 'required|integer|min:0',
                     'ngay_nhap' => 'required|date',
-                    'mo_ta' => 'nullable|string',
+                    'mo_ta' => 'nullable|string|min:50',
                     'trang_thai' => 'required',
                     
                 ], [
@@ -73,20 +69,21 @@ class SamphamController extends Controller
                     'ngay_nhap.date' => 'Ngày nhập phải là ngày hợp lệ',
             
                     'mo_ta.string' => 'Mô tả phải là chữ',
+                    'mo_ta.min' => 'Mô tả phải lớn hơn 50 kí từ với đủ seo sản phẩm',
             
                     'trang_thai.required' => 'Trạng thái bị trống',
                 
 
                     ]);
-        //   $data=$request->except('hinh_anh');
-        //   if($request->hasFile('hinh_anh')&&$request->file('hinh_anh')->isValid()){
-        //     $data['hinh_anh'] = $this->upLoadFile($request->file('hinh_anh'));
-
-        // }
-        
+        if ($request->hasFile('hinh_anh')) {
+            // Nếu có đẩy hình ảnh
+            $filename = $request->file('hinh_anh')->store('uploads/sanpham', 'public');
+        } else {
+            $filename = null;
+        }
         DB::table('san_phams')->insert([
+        'hinh_anh' =>$filename,
         'ten_san_pham' => $request->input('ten_san_pham'),
-        'hinh_anh' => $request->input('hinh_anh'),
         'gia' => $request->input('gia'),
         'so_luong' => $request->input('so_luong'),
         'ngay_nhap' => $request->input('ngay_nhap'),
@@ -94,7 +91,7 @@ class SamphamController extends Controller
         'trang_thai' => $request->input('trang_thai'),
         'id_danh_muc' => $request->input('id_danh_muc')
          ]);
-        return redirect()->route('admin.sampham.index')->with('success', 'Cập nhật sản phẩm là xong thành công.');
+        return redirect()->route('admin.sampham.index')->with('success', 'Thêm sản phẩm là xong thành công.');
      }
 
     /**

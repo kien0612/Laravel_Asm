@@ -16,7 +16,8 @@
         <th scope="col">Số Lượng</th>
         <th scope="col">Ngày nhập hàng</th>
         <th scope="col">Danh mục</th>
-        <th scope="col">Trang Thái</th>
+        <th scope="col">Danh mục</th>
+        <th scope="col">Trang Thái đơn hành</th>
         <th scope="col">acc</th>
       </tr>
     </thead>
@@ -27,7 +28,7 @@
         <tr>
             <td>{{ $v->id_san_pham  }}</td>
             <td>{{ $v->ten_san_pham  }}</td>
-            <td><img  width="50px" height="50px" src="{{$v->hinh_anh}}" alt=""></td>
+            <td>  <img src="{{ Storage::url($v->hinh_anh) }}" width="100" height="100" alt=""></td>
            
             <td>{{ $v->gia   }}$</td>
             <td>{{ $v->so_luong }}</td>
