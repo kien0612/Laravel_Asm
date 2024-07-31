@@ -25,15 +25,23 @@
                         <label for="username">Nhập name <span class="required">*</span></label>
                         <input type="text" name="name" id="username" class="form-controller"  placeholder="Nhập name vào !" {{{old('name')}}} >
                     </p>
+                    @error('username')
+                    <div class="alert alert-danger"> {{$message}} </div>
+                    @enderror
                     <p class="form-row pd-right">
                         <label for="username">Nhập Email <span class="required">*</span></label>
                         <input type="email" name="email" id="username" class="form-controller"  placeholder="Nhập email vào !" {{{old('email')}}} >
                     </p>
+                    @error('email')
+                    <div class="alert alert-danger"> {{$message}} </div>
+                    @enderror
                     <p class="form-row pd-left">
                         <label for="password">Passwords <span class="required">*</span></label>
                         <input type="text" name="password" id="password" class="form-controller"  placeholder="Nhập mật Khẩu vào" >
                     </p>
-                   
+                    @error('password')
+                    <div class="alert alert-danger"> {{$message}} </div>
+                    @enderror
                   
                     <p class="form-row">
                         <button  class="theme-button col-md-12 marB20">Đăng ký</button>

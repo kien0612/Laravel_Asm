@@ -120,11 +120,13 @@
                                     <div class="user-menu">
                                         <a class="closeMenu"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
                                         <ul class="user-menu-items">
+                                       
                                             <li class="clearfix">
-                                                <a href="{{route('login')}}">Account</a>
+                                                <a href="{{route('login')}}">Login</a>
                                             </li>
                                             <li class="clearfix">
                                                 <a href="#">Track Order</a>
+                                                
                                             </li>
                                             <li class="clearfix">
                                                 <a href="{{ route('logout') }}">Logout</a>
@@ -224,22 +226,8 @@
                                                     <li><a href="{{ route('defaultpage') }}">Default Page</a></li>
                                                 </ul>
                                             </li>
-                                            {{-- <li>
-                                                <a href="#">blog <span class="caret menu-arrow"></span><span class="sub-arrow">...</span></a> 
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="blog-style1.html">Blogs List Style1</a></li>
-                                                    <li><a href="blog-style3.html">Blogs List Style2</a></li>
-                                                    <li><a href="blog-style2.html">Blogs Grid Sidebar</a></li>
-                                                    <li><a href="blog-style4.html">Blogs Grid Fullwidth</a></li>
-                                                    <li>
-                                                        <a href="#">Blog Detail</a>										  
-                                                        <ul class="dropdown-menu">
-                                                            <li><a href="blog-single-sidebar.html">With Sidebar</a></li>
-                                                            <li><a href="blog-single-full-width.html">Without Sidebar</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li> --}}
+                                            
+                                            
                                             <li><a href="{{ route('contact')}}">Contact</a></li>
                                         </ul>
                                         <!-- /.Right nav  End-->
@@ -518,415 +506,43 @@
                 </div>
                 <div class="row" id="MixItUp1">
                     <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-1.jpg" alt="">						
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
+                 @foreach ($sanpham as $item)
+                 <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
+                    <div class="wa-products">
+                        <div class="wa-products-thumbnail wa-item">
+                            {{-- <img src="assets/img/product/front-1.jpg" alt="">						 --}}
+                            <img src="{{ Storage::url($item->hinh_anh) }}" width="90px" height="200xp" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <ul class="wa-products-icon">
+                                        <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a href="{{route('edit',$item->id_san_pham)}}" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                      
+                                        <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
+                                    </ul>
+                                    <div class="clear"></div>
                                 </div>
                             </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
+                        </div>
+                        <div class="wa-products-caption">
+                            <h2><a href="product-detail.html">{{ $item->ten_san_pham}}</a></h2>
+                            <div class="clear"></div>
+                            <ul class="ratings">
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                            <span class="price">
+                                {{ $item->gia}} $
+                            </span>
                         </div>
                     </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-2.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-3.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix " >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-4.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-5.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix " >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-6.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-7.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-8.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-9.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix " >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-10.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-11.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//==product Item==//-->
-                    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix" >
-                        <div class="wa-products">
-                            <div class="wa-products-thumbnail wa-item">
-                                <img src="assets/img/product/front-12.jpg" alt="">
-                                <div class="caption">
-                                    <div class="caption-text">
-                                        <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">Product Title</a></h2>
-                                <div class="clear"></div>
-                                <ul class="ratings">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <span class="price">
-                                <del>$200</del>
-                                $100
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
                 </div>
+                 @endforeach
+
             </div>
         </div>
         <!--//=============product End============//-->	
@@ -1034,243 +650,49 @@
                             </div>
                         </div>
                         <!--//==product Item==//-->
-                        <div class="col-md-12" >
-                            <div class="wa-products">
-                                <div class="wa-products-thumbnail wa-item">
-                                    <img src="assets/img/product/back-2.jpg" alt="">
-                                    <div class="caption">
-                                        <div class="caption-text">
-                                            <ul class="wa-products-icon">
-                                                <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
+                     @foreach ($sanpham as $v)
+                     <div class="col-md-12" >
+                        <div class="wa-products">
+                            <div class="wa-products-thumbnail wa-item">
+                                
+                                <img src="{{ Storage::url($v->hinh_anh) }}" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <ul class="wa-products-icon">
+                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
+                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
+                                        </ul>
+                                        <div class="clear"></div>
                                     </div>
                                 </div>
-                                <div class="wa-products-caption">
-                                    <h2><a href="product-detail.html">Product Title</a></h2>
-                                    <div class="clear"></div>
-                                    <ul class="ratings">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <span class="price">
-                                    <del>$200</del>
-                                    $100
-                                    </span>
-                                </div>
                             </div>
-                        </div>
-                        <!--//==product Item==//-->
-                        <div class="col-md-12" >
-                            <div class="wa-products">
-                                <div class="wa-products-thumbnail wa-item">
-                                    <img src="assets/img/product/front-3.jpg" alt="">
-                                    <div class="caption">
-                                        <div class="caption-text">
-                                            <ul class="wa-products-icon">
-                                                <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wa-products-caption">
-                                    <h2><a href="product-detail.html">Product Title</a></h2>
-                                    <div class="clear"></div>
-                                    <ul class="ratings">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <span class="price">
-                                    <del>$200</del>
-                                    $100
-                                    </span>
-                                </div>
+                            
+                           
+                            <div class="wa-products-caption">
+                                <h2><a href="product-detail.html">{{ $v->ten_san_pham }}</a></h2>
+                                <div class="clear"></div>
+                                <ul class="ratings">
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
+                                </ul>
+                                <div class="clear"></div>
+                                <span class="price">
+                               {{  $v->gia}}$
+                                </span>
                             </div>
+                       
+                           
+                          
                         </div>
-                        <!--//==product Item==//-->
-                        <div class="col-md-12" >
-                            <div class="wa-products">
-                                <div class="wa-products-thumbnail wa-item">
-                                    <img src="assets/img/product/back-4.jpg" alt="">
-                                    <div class="caption">
-                                        <div class="caption-text">
-                                            <ul class="wa-products-icon">
-                                                <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wa-products-caption">
-                                    <h2><a href="product-detail.html">Product Title</a></h2>
-                                    <div class="clear"></div>
-                                    <ul class="ratings">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <span class="price">
-                                    <del>$200</del>
-                                    $100
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//==product Item==//-->
-                        <div class="col-md-12" >
-                            <div class="wa-products">
-                                <div class="wa-products-thumbnail wa-item">
-                                    <img src="assets/img/product/back-5.jpg" alt="">
-                                    <div class="caption">
-                                        <div class="caption-text">
-                                            <ul class="wa-products-icon">
-                                                <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wa-products-caption">
-                                    <h2><a href="product-detail.html">Product Title</a></h2>
-                                    <div class="clear"></div>
-                                    <ul class="ratings">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <span class="price">
-                                    <del>$200</del>
-                                    $100
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//==product Item==//-->
-                        <div class="col-md-12">
-                            <div class="wa-products">
-                                <div class="wa-products-thumbnail wa-item">
-                                    <img src="assets/img/product/back-6.jpg" alt="">
-                                    <div class="caption">
-                                        <div class="caption-text">
-                                            <ul class="wa-products-icon">
-                                                <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wa-products-caption">
-                                    <h2><a href="product-detail.html">Product Title</a></h2>
-                                    <div class="clear"></div>
-                                    <ul class="ratings">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <span class="price">
-                                    <del>$200</del>
-                                    $100
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//==product Item==//-->
-                        <div class="col-md-12">
-                            <div class="wa-products">
-                                <div class="wa-products-thumbnail wa-item">
-                                    <img src="assets/img/product/back-7.jpg" alt="">
-                                    <div class="caption">
-                                        <div class="caption-text">
-                                            <ul class="wa-products-icon">
-                                                <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wa-products-caption">
-                                    <h2><a href="product-detail.html">Product Title</a></h2>
-                                    <div class="clear"></div>
-                                    <ul class="ratings">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <span class="price">
-                                    <del>$200</del>
-                                    $100
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//==product Item==//-->
-                        <div class="col-md-12">
-                            <div class="wa-products">
-                                <div class="wa-products-thumbnail wa-item">
-                                    <img src="assets/img/product/back-9.jpg" alt="">
-                                    <div class="caption">
-                                        <div class="caption-text">
-                                            <ul class="wa-products-icon">
-                                                <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" class="quickview-box-btn" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wa-products-caption">
-                                    <h2><a href="product-detail.html">Product Title</a></h2>
-                                    <div class="clear"></div>
-                                    <ul class="ratings">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <span class="price">
-                                    <del>$200</del>
-                                    $100
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                         
+                     @endforeach
+                    
+                    
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -1827,84 +1249,86 @@
                     <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
                         <div class="popup-inner">
                             <a href="#" class="close-quick-view"><i class="fa fa-times"></i></a>
-                            <div class="popup-content padT15 padB15">
-                                <div class="prod-info-section">
-                                    <div class="clearfix">
-                                        <!--Thumbnail Column-->
-                                        <div class="carousel-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="wa-product-main-image">
-                                                <img src="assets/img/product/8.jpg" alt="">
-                                            </div>
+                        
+                           <div class="popup-content padT15 padB15">
+                            <div class="prod-info-section">
+                                <div class="clearfix">
+                                    <!--Thumbnail Column-->
+                                    <div class="carousel-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="wa-product-main-image">
+                                            <img src="assets/img/product/8.jpg" alt="">
                                         </div>
-                                        <!--Content Column-->
-                                        <div class="content-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="outer padT30">
-                                                <div class="title-box">
-                                                    <div class="inner marB30">
-                                                        <h2 class="marB10">Product Title Here.</h2>
-                                                        <p class="availability in-stock"><strong>Availability:</strong> <span>In stock</span></p>
-                                                        <ul class="ratings">
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                                        </ul>
-                                                        <span class="price marB10">								
-                                                        $100
-                                                        <del>$200</del>														
-                                                        <span class="clear"></span>
-                                                        </span>
-                                                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                                                    </div>
-                                                    <div class="clear"></div>
-                                                    <!--Options-->
-                                                    <div class="prod-options marB10">
-                                                        <div class="clearfix">
-                                                            <div class="col-md-3 col-sm-3 padL0">
-                                                                <div class="form-group">
-                                                                    <label><strong>Qty :</strong> </label>
-                                                                    <div class="clear"></div>
-                                                                    <input type="number" name="qty" value="2" max="10" min="0" placeholder="">
-                                                                </div>
+                                    </div>
+                                    <!--Content Column-->
+                                    <div class="content-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="outer padT30">
+                                            <div class="title-box">
+                                                <div class="inner marB30">
+                                                    <h2 class="marB10"></h2>
+                                                    <p class="availability in-stock"><strong>Availability:</strong> <span>In stock</span></p>
+                                                    <ul class="ratings">
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
+                                                    </ul>
+                                                    <span class="price marB10">								
+                                                    $100
+                                                    <del>$200</del>														
+                                                    <span class="clear"></span>
+                                                    </span>
+                                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <!--Options-->
+                                                <div class="prod-options marB10">
+                                                    <div class="clearfix">
+                                                        <div class="col-md-3 col-sm-3 padL0">
+                                                            <div class="form-group">
+                                                                <label><strong>Qty :</strong> </label>
+                                                                <div class="clear"></div>
+                                                                <input type="number" name="qty" value="2" max="10" min="0" placeholder="">
                                                             </div>
-                                                            <div class="col-md-4 col-sm-4 padL0">
-                                                                <div class="form-group">
-                                                                    <label><strong>Color :</strong> </label>
-                                                                    <div class="clear"></div>
-                                                                    <select name="sel-color">
-                                                                        <option>Select Color</option>
-                                                                        <option>Red</option>
-                                                                        <option>Green</option>
-                                                                        <option>Yellow</option>
-                                                                    </select>
-                                                                </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4 padL0">
+                                                            <div class="form-group">
+                                                                <label><strong>Color :</strong> </label>
+                                                                <div class="clear"></div>
+                                                                <select name="sel-color">
+                                                                    <option>Select Color</option>
+                                                                    <option>Red</option>
+                                                                    <option>Green</option>
+                                                                    <option>Yellow</option>
+                                                                </select>
                                                             </div>
-                                                            <div class="col-md-5 col-sm-5 padL0">
-                                                                <div class="form-group">
-                                                                    <label><strong>Size :</strong> </label>
-                                                                    <div class="clear"></div>
-                                                                    <select name="sel-color">
-                                                                        <option>Select Size</option>
-                                                                        <option>Small</option>
-                                                                        <option>Medium</option>
-                                                                        <option>Large</option>
-                                                                    </select>
-                                                                </div>
+                                                        </div>
+                                                        <div class="col-md-5 col-sm-5 padL0">
+                                                            <div class="form-group">
+                                                                <label><strong>Size :</strong> </label>
+                                                                <div class="clear"></div>
+                                                                <select name="sel-color">
+                                                                    <option>Select Size</option>
+                                                                    <option>Small</option>
+                                                                    <option>Medium</option>
+                                                                    <option>Large</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--Add-->
-                                                <div class="add-options">
-                                                    <button type="button" class="theme-button">Order Now</button>
-                                                    <button type="button" class="theme-button"><span class="fa fa-heart"></span></button>
-                                                </div>
+                                            </div>
+                                            <!--Add-->
+                                            <div class="add-options">
+                                                <button type="button" class="theme-button">Order Now</button>
+                                                <button type="button" class="theme-button"><span class="fa fa-heart"></span></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                         
                         </div>
                     </div>
                 </div>
