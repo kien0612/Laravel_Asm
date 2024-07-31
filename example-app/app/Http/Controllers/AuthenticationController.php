@@ -16,6 +16,16 @@ class AuthenticationController extends Controller
     
     public function postlogin(Request $req)
     {
+
+      $validate = $req->validate([
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+        ],
+        [
+          'email.required' => 'Vui lòng nhập email',
+          'email.email' => 'Email không đúng định đạng dạng',
+          'password.required' => 'Vui lòng nhập mật khẩu',
+        ]);
       $dataUserLogin=[
         'email'=> $req->email,
         'password'=> $req->password,
@@ -47,6 +57,20 @@ class AuthenticationController extends Controller
       }
 
     public function postdanhky(Request $req){
+
+      $validate = $req->validate([
+        'username' =>'required|min:3',  
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+        ],
+        [
+          'username.required' => 'Vui lòng nhập username',
+          'username.min' => 'username không đươc bé hơn 3 kí tự',
+          'email.required' => 'Vui lòng nhập email',
+          'email.email' => 'Email không đúng định đạng dạng',
+          'password.required' => 'Vui lòng nhập mật khẩu',
+        ]);
+      
       $check = User::where('email',$req ->email)->exists();
       if($check){
         return redirect()->back()->with(
