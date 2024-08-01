@@ -34,19 +34,20 @@ class SanPham extends Model
     public function loadAllDataProductWithPager()
     {
         // ORM
-        return self::select('san_phams.*', 'danh_mucs.name as ten_danh_muc')
+        return self::select('san_phams.*', 'danh_mucs.ten_danh_muc')
             ->join('danh_mucs', 'san_phams.id_danh_muc', '=', 'danh_mucs.id_danh_muc')
-            ->with('listDanhMuc')
-            ->latest('id_danh_muc')
+            ->latest('san_phams.id_san_pham')
             ->paginate(10);
 
     }
     public function insertDataSanPham($params)
     {
-        $params['status'] = 1;
-        $params['created_at'] = date('Y-m-d H:i:s');
-        $res = SanPham::query()->create($params);
-        return $res;
+        // $params['trang_thai'] = 1;
+        // $params['created_at'] = now();
+        // $res = SanPham::query()->create($params);
+        // return $res;
+        return SanPham::create($params);
+
     }
 
     public function loadIdDataSanPham($id)
@@ -63,9 +64,9 @@ class SanPham extends Model
         return $query;
     }
 
-    public function upadateDataSanPham($params, $id)
+    public function updateDataSanPham($params, $id)
     {
-        $params['updated_at'] = date('Y-m-d H:i:s');
+        $params['updated_at'] = now();
         $res = SanPham::query()->find($id)->update($params);
         return $res;
     }

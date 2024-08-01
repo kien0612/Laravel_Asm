@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\Nhanviens\SanPhamNhanVienController;
 use App\Http\Middleware\TrimStrings;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
@@ -10,6 +11,8 @@ use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
 use App\Http\Controllers\Giaodien\Nhanvien\nhanviencontroller;
 use App\Http\Controllers\Nhanviens\danhmuccontroller as NhanviensDanhmuccontroller;
 use App\Http\Controllers\Nhanviens\danhmucnhanvienController;
+use App\Http\Controllers\Nhanviens\KhuyenMaiNhanVienController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +71,7 @@ route::group(
   [
     'prefix' => 'nhanvien',
     'as' => 'nhanvien.',
-    // 'middleware' => 'checkAdmin'
+    'middleware' => 'checkAdmin'
 ],
 function () {
     // Route để truy cập trang chính của nhân viên
@@ -94,6 +97,68 @@ function () {
 
     // // Route để xóa một danh mục cụ thể
     Route::delete('danhmuc/{id}', [danhmucnhanvienController::class, 'destroy'])->name('danhmuc.destroy');
+}
+
+);
+
+route::group(
+  [
+    'prefix' => 'nhanvien',
+    'as' => 'nhanvien.',
+    'middleware' => 'checkAdmin'
+],
+function () {
+    // Route để truy cập trang chính của nhân viên
+    Route::get('/', [SanPhamNhanVienController::class, 'nhanvien'])->name('index');
+
+    // Route để truy cập danh sách danh mục dưới nhân viên
+    Route::get('sanpham', [SanPhamNhanVienController::class, 'index'])->name('sanpham.index');
+
+    // Route để hiển thị biểu mẫu tạo danh mục mới
+    Route::get('sanpham/create', [SanPhamNhanVienController::class, 'create'])->name('sanpham.create');
+
+    // // Route để lưu trữ danh mục mới
+    Route::post('sanpham', [SanPhamNhanVienController::class, 'store'])->name('sanpham.store');
+
+    // // Route để hiển thị biểu mẫu chỉnh sửa một danh mục cụ thể
+    Route::get('sanpham/{id}/edit', [SanPhamNhanVienController::class, 'edit'])->name('sanpham.edit');
+
+    // // Route để cập nhật một danh mục cụ thể
+    Route::put('sanpham/{id}', [SanPhamNhanVienController::class, 'update'])->name('sanpham.update');
+
+    // // Route để xóa một danh mục cụ thể
+    Route::delete('sanpham/{id}', [SanPhamNhanVienController::class, 'destroy'])->name('sanpham.destroy');
+}
+
+);
+
+route::group(
+  [
+    'prefix' => 'nhanvien',
+    'as' => 'nhanvien.',
+    // 'middleware' => 'checkAdmin'
+],
+function () {
+    // Route để truy cập trang chính của nhân viên
+    Route::get('/', [KhuyenMaiNhanVienController::class, 'nhanvien'])->name('index');
+
+    // Route để truy cập danh sách danh mục dưới nhân viên
+    Route::get('khuyenmai', [KhuyenMaiNhanVienController::class, 'index'])->name('khuyenmai.index');
+
+    // Route để hiển thị biểu mẫu tạo danh mục mới
+    Route::get('khuyenmai/create', [KhuyenMaiNhanVienController::class, 'create'])->name('khuyenmai.create');
+
+    // // Route để lưu trữ danh mục mới
+    Route::post('khuyenmai', [KhuyenMaiNhanVienController::class, 'store'])->name('khuyenmai.store');
+
+    // // Route để hiển thị biểu mẫu chỉnh sửa một danh mục cụ thể
+    Route::get('khuyenmai/{id}/edit', [KhuyenMaiNhanVienController::class, 'edit'])->name('khuyenmai.edit');
+
+    // // Route để cập nhật một danh mục cụ thể
+    Route::put('khuyenmai/{id}', [KhuyenMaiNhanVienController::class, 'update'])->name('khuyenmai.update');
+
+    // // Route để xóa một danh mục cụ thể
+    Route::delete('khuyenmai/{id}', [KhuyenMaiNhanVienController::class, 'destroy'])->name('khuyenmai.destroy');
 }
 
 )->withoutMiddleware(TrimStrings::class);
