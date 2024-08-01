@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\Admins\SamphamController;
+use App\Http\Controllers\Admins\TaikhoanController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
@@ -64,6 +65,7 @@ route::group(
     Route::resource('danhmuc', DanhmucController::class);
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
     Route::resource('sampham', SamphamController::class);
+    Route::resource('taikhoan', TaikhoanController::class);
   }
  
 );
@@ -72,10 +74,11 @@ route::group(
   [
     'prefix'=>'nhanvien',
     'as'=>'nhanvien.',
-    'middleware' =>'checkAdmin'
+    'middleware' =>'nhanvien'
   ], function(){
     Route::get('/', [danhmucnhanvienController::class, 'nhanvien'])->name('nhanvien');
     Route::resource('danhmucnv', danhmucnhanvienController::class);
+    
   }
 
 );
