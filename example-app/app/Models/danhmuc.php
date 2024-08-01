@@ -51,8 +51,8 @@ class danhmuc extends Model
     return danhmuc::create($params);
   }
 
-  public function upadateDataDanhMuc($params, $id){
-    $params['updated_at'] = date('Y-m-d H:i:s');
+  public function updateDataDanhMuc($params, $id){
+    $params['updated_at'] = now();
     $res = danhmuc::query()->find($id)->update($params);
     return $res;
 }

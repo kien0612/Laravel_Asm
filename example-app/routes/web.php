@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admins\BannerMakettingController as AdminBannerMakettingController;
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
+use App\Http\Controllers\Admins\SamphamController;
 use App\Http\Controllers\Admins\DanhGiaController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
@@ -70,7 +71,7 @@ route::group(
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
    
     Route::resource('banner', AdminBannerMakettingController::class);
-
+    Route::resource('sampham', SamphamController::class);
     Route::resource('danhgia', DanhGiaController::class);
 
   }

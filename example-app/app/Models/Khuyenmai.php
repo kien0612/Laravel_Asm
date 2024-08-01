@@ -11,7 +11,8 @@ class KhuyenMai extends Model
 
     protected $table = 'khuyen_mais';
     protected $primaryKey = 'id_khuyen_mai';
-    public $timestamps = true;
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
         'ten_khuyen_mai',
@@ -21,8 +22,28 @@ class KhuyenMai extends Model
         'ngay_ket_thuc',
     ];
 
-    public function hoaDons()
+    public function loadAllDataKhuyenMai()
     {
-        return $this->hasMany(HoaDon::class, 'id_khuyen_mai');
+        return self::all();
+    }
+
+    public function loadIdDataKhuyenMai($id)
+    {
+        return self::find($id);
+    }
+
+    public function deleteDataKhuyenMai($id)
+    {
+        return self::find($id)->delete();
+    }
+
+    public function insertDataKhuyenMai($params)
+    {
+        return self::create($params);
+    }
+
+    public function updateDataKhuyenMai($params, $id)
+    {
+        return self::find($id)->update($params);
     }
 }

@@ -73,14 +73,14 @@ class danhmucnhanvienController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreDanhMucRequest $request, string $id)
     {
         //
         $objDm = new danhmuc();
         $checkId = $objDm->loadIdDataDanhMuc($id);
         if ($checkId) {
             $data = $request->validated();
-            $res = $$objDm->upadateDataProduct($data, $id);
+            $res = $objDm->updateDataDanhMuc($data, $id);
             if ($res) {
                 return redirect()->route('nhanvien.danhmuc.index')->with('success', 'Sản phẩm chỉnh sửa thành công!');
             } else {
@@ -105,7 +105,8 @@ class danhmucnhanvienController extends Controller
                 // if (isset($imgOld)) {
                 //     if (Storage::disk('public')->exists($imgOld)) {
                 //         Storage::disk('public')->exists($imgOld);
-                //     }/-strong/-heart:>:o:-((:-h// }
+                //     }
+                // }
                 return redirect()->back()->with('success', 'San pham xoa thanh cong');
             } else {
                 return redirect()->back()->with('error', 'San pham xoa khong thanh cong');
