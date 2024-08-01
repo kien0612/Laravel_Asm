@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admins\BannerMakettingController;
 use App\Http\Controllers\Admins\DanhmucController;
 use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\Admins\SamphamController;
-use App\Http\Controllers\Admins\TaikhoanController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
@@ -11,6 +11,11 @@ use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
 use App\Http\Controllers\Giaodien\Nhanvien\nhanviencontroller;
 use App\Http\Controllers\Nhanviens\danhmuccontroller as NhanviensDanhmuccontroller;
 use App\Http\Controllers\Nhanviens\danhmucnhanvienController;
+use App\Http\Controllers\Nhanviens\BannerMakettingController;
+use App\Http\Controllers\Nhanviens\ThanhToanController;
+use App\Http\Controllers\Nhanviens\GioHangController;
+use App\Http\Controllers\Nhanviens\HoaDonController;
+
 
 
 /*
@@ -65,7 +70,6 @@ route::group(
     Route::resource('danhmuc', DanhmucController::class);
     Route::resource('khuyenmai', KhuyenmaiControoller::class);
     Route::resource('sampham', SamphamController::class);
-    Route::resource('taikhoan', TaikhoanController::class);
   }
  
 );
@@ -74,11 +78,10 @@ route::group(
   [
     'prefix'=>'nhanvien',
     'as'=>'nhanvien.',
-    'middleware' =>'nhanvien'
+    'middleware' =>'checkAdmin'
   ], function(){
     Route::get('/', [danhmucnhanvienController::class, 'nhanvien'])->name('nhanvien');
     Route::resource('danhmucnv', danhmucnhanvienController::class);
-    
   }
 
 );

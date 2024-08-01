@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
               NguoiDungSeeder::class,
               BannerMakettingSeeder::class,
               DanhGiaSeeder::class,
-              HoaDonSeeder::class,
               KhuyenMaiSeeder::class,
+              HoaDonSeeder::class,
               ThanhToanSeeder::class,
               GioHangSeeder::class,
               
