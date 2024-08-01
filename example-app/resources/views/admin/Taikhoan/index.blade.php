@@ -1,8 +1,7 @@
 @extends('admin.layout');
 @section('content')
-
-<a  class="btn btn-dark" href="{{ route('danhmuc.create')}}">Theem moi</a>
-<h1>ba</h1>
+<h1>Bảng tài khoản</h1>
+<a  class="btn btn-dark" href="{{ route('admin.taikhoan.create')}}">Thêm mới moi</a>
 <table class="table">
     <thead>
       <tr>
@@ -14,20 +13,27 @@
     </thead>
     <tbody>
      
-        @foreach ($danhmuc as $v)
+        @foreach ($taikhoan as $v)
        
         <tr>
-            <td>{{ $v->id_danh_muc }}</td>
-            <td>{{ $v->ten_danh_muc }}</td>
+            <td>{{ $v->id }}</td>
+            <td>{{ $v->name }}</td>
+            <td>{{ $v->email  }}</td>
+            <td>{{ $v->email_verified_at }}</td>
+            <td>{{ $v->password }}</td>
+            <td>{{ $v->so_dien_thoai  }}</td>
+            <td>{{ $v->dia_chi }}</td>
+            <td>{{ $v->vai_tro  }}</td>
+    
            
-            <td>{{ $v->mo_ta }}</td>
+            <td>{{ $v->remember_token }}</td>
             <td>
-              <form action="{{route('danhmuc.destroy',$v->id_danh_muc)}}" method="post">
+              <form action="{{route('admin.taikhoan.destroy',$v->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button onclick="return confirm('Ban co muon xoa khong')" class="btn btn-danger" type="submit">Xoa</button>
               </form>
-              <a href="{{route('danhmuc.edit',$v->id_danh_muc)}}" class="btn btn-primary">Sua</a>
+              <a href="{{route('admin.taikhoan.edit',$v->id)}}" class="btn btn-primary">Sua</a>
           </td>
           
         </tr> 

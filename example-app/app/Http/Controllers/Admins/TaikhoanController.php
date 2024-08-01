@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaikhoanController extends Controller
 {
@@ -12,6 +13,9 @@ class TaikhoanController extends Controller
      */
     public function index()
     {
+        $taikhoan= DB::Table('users')->get();
+    
+        return view('admin.taikhoan.index' , compact('taikhoan'));
         
     }
 
