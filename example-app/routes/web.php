@@ -80,35 +80,15 @@ route::group(
 
 route::group(
   [
-    'prefix' => 'nhanvien',
-    'as' => 'nhanvien.',
-    'middleware' => 'checkAdmin'
-],
-function () {
-    // Route để truy cập trang chính của nhân viên
-    Route::get('/', [danhmucnhanvienController::class, 'nhanvien'])->name('index');
-
-    // Route để truy cập danh sách danh mục dưới nhân viên
-    Route::get('danhmuc', [danhmucnhanvienController::class, 'index'])->name('danhmuc.index');
-
-    // Route để hiển thị biểu mẫu tạo danh mục mới
-    Route::get('danhmuc/create', [danhmucnhanvienController::class, 'create'])->name('danhmuc.create');
-
-    // // Route để lưu trữ danh mục mới
-    Route::post('danhmuc', [danhmucnhanvienController::class, 'store'])->name('danhmuc.store');
-
-    // // Route để hiển thị thông tin chi tiết của một danh mục cụ thể
-    Route::get('danhmuc/{id}', [danhmucnhanvienController::class, 'show'])->name('danhmuc.show');
-
-    // // Route để hiển thị biểu mẫu chỉnh sửa một danh mục cụ thể
-    Route::get('danhmuc/{id}/edit', [danhmucnhanvienController::class, 'edit'])->name('danhmuc.edit');
-
-    // // Route để cập nhật một danh mục cụ thể
-    Route::put('danhmuc/{id}', [danhmucnhanvienController::class, 'update'])->name('danhmuc.update');
-
-    // // Route để xóa một danh mục cụ thể
-    Route::delete('danhmuc/{id}', [danhmucnhanvienController::class, 'destroy'])->name('danhmuc.destroy');
-
+    'prefix'=>'nhanvien',
+    'as'=>'nhanvien.',
+    'middleware' =>'checkAdmin'
+  ], function(){
+    Route::get('nhanvien', [nhanvienController::class, 'nhanvien'])->name('nhanvien');
+    Route::resource('danhmuc', danhmucnhanvienController::class);
+    Route::resource('sanpham', SanPhamNhanVienController::class);
+    Route::resource('khuyenmai', KhuyenMaiNhanVienController::class);
+ 
     Route::resource('banner', NhanvienBannerMakettingController::class);
     Route::resource('thanh_toan', ThanhToanController::class);
     Route::resource('gio_hang', GioHangController::class);
