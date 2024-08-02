@@ -19,24 +19,43 @@ class Nguoidungcontroller extends Controller
     public function index()
     {
         $sanpham=DB::table('san_phams')->get();
-       
-       return view('nguoidung.index' , compact('sanpham'));
+        $banner = DB::table('banner_makettings')->get();
+       return view('nguoidung.index' , compact('sanpham' , 'banner'));
     }
-    public function quickview(string $id_san_pham)
-    {
+    // public function quickview(string $id_san_pham)
+    // {
         
-        $sanphams = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
-        return view('nguoidung.index', compact('sanphams'));
-    }
-    /**
-     * Show the form for creating a new resource.
-     */
- 
+    //     $sanphams = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
+    //     return view('nguoidung.index', compact('sanphams'));
+    // }
+  
     public function product()
     {
         $objSp = new SanPham();
         $this->view['listSp'] = $objSp->loadAllDataProductWithPager();
         return view('nguoidung.product', $this->view);
+    }
+
+
+    public function addtocart($id_san_pham){
+        $sanpham = SanPham::findOrFail($id_san_pham);
+        $cart=session()->get('gio_hangs', []);
+         
+       if(isset($cart[$id_san_pham])){
+        $cart[$id_san_pham]['so_luong']++;
+       }else{
+        $cart[$id_san_pham]=[
+            'ten_san_pham' => $sanpham->ten_san_pham,
+            'gia' => $sanpham->gia,
+            'so_luong' => 1,
+            'hinh_anh' => $sanpham->hinh_anh
+        ];
+        session()->put('cart', $cart);
+            return redirect()->back()->with('success','Sản phẩm đã được thêm vào gi�� hàng');
+        
+       }
+        
+        
     }
     public function checkout()
     {

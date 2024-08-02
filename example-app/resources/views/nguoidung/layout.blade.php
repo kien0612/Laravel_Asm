@@ -123,13 +123,13 @@
                                     <a class="closeMenu"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
                                     <ul class="user-menu-items">
                                         <li class="clearfix">
-                                            <a href="{{ route('login') }}">Account</a>
+                                            <a href="{{route('login')}}">Login</a>
                                         </li>
                                         <li class="clearfix">
-                                            <a href="#">Track Order</a>
+                                            <a href="{{route('cart')}}">Track Order</a>
                                         </li>
                                         <li class="clearfix">
-                                            <a href="#">Logout</a>
+                                            <a href="{{route('logout')}}">Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -138,7 +138,7 @@
                             <li>
                                 <a href="#" class="cartIcon">
                                     <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                    <sup>03</sup>
+                                    <sup>{{ count((array) session('cart')) }}</sup>
                                 </a>
                                 <div class="shopping-cart">
                                     <a class="closeCart"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
@@ -313,13 +313,13 @@
                                                         aria-hidden="true"></i></a>
                                                 <ul class="user-menu-items">
                                                     <li class="clearfix">
-                                                        <a href="#">Account</a>
+                                                        <a href="">Login</a>
                                                     </li>
                                                     <li class="clearfix">
-                                                        <a href="#">Track Order</a>
+                                                        <a href="">Track Order</a>
                                                     </li>
                                                     <li class="clearfix">
-                                                        <a href="#">Logout</a>
+                                                        <a href="">Logout</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -328,7 +328,7 @@
                                         <li>
                                             <a href="#" class="cartIcon">
                                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                <sup>03</sup>
+                                                <sup></sup>
                                             </a>
                                             <div class="shopping-cart">
                                                 <a class="closeCart"><i class="fa fa-times-circle"
@@ -390,57 +390,56 @@
         </div>
         <!--//==Navbar End==//-->
     </header>
-    <!--//==Header End==//-->
-    <!--//=======Main Slider=======//-->
-    {{-- <div class="wa_main_bn_wrap">
-        <div id="home1-main-slider" class="owl-carousel owl-theme">
-            <div class="item">
-                <figure>
-                    <img src="assets/img/slider/1.jpg" class="hidden-xs hidden-sm " alt="" />
-                    <img src="assets/img/slider/1xs.jpg" class="hidden-lg hidden-md" alt="" />
-                    <figcaption>
-                        <div class="container">
-                            <span class="special">latest Collection</span>
-                            <h2><span>Smart is the New Sexy</span></h2>
-                            <span>flat 60% off for first 30 Customer.</span>
-                            <p>Quis est tam dissimile homini. Quia dolori non voluptas.</p>
-                            <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
-                        </div>
-                    </figcaption>
-                </figure>
+
+        {{-- <div class="wa_main_bn_wrap">
+            <div id="home1-main-slider" class="owl-carousel owl-theme">
+                <div class="item">
+                    <figure>
+                        <img src="assets/img/slider/1.jpg" class="hidden-xs hidden-sm " alt="" />
+                        <img src="assets/img/slider/1xs.jpg" class="hidden-lg hidden-md" alt="" />
+                        <figcaption>
+                            <div class="container">
+                                <span class="special">latest Collection</span>
+                                <h2><span>Smart is the New Sexy</span></h2>
+                                <span>flat 60% off for first 30 Customer.</span>
+                                <p>Quis est tam dissimile homini. Quia dolori non voluptas.</p>
+                                <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="assets/img/slider/2.jpg" class="hidden-xs hidden-sm " alt="" />
+                        <img src="assets/img/slider/2xs.jpg" class="hidden-lg hidden-md" alt="" />
+                        <figcaption>
+                            <div class="container">
+                                <span class="special">Sexy Collection</span>
+                                <h2><span>Being a Sexy Is Not Crime</span></h2>
+                                <span>flat 60% off for first 30 Customer.</span>
+                                <p>Quis est tam dissimile homini. Quia dolori non voluptas.</p>
+                                <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="assets/img/slider/3.jpg" class="hidden-xs hidden-sm" alt="" />
+                        <img src="assets/img/slider/3xs.jpg" class="hidden-lg hidden-md" alt="" />
+                        <figcaption>
+                            <div class="container">
+                                <span class="special">Fashion Style</span>
+                                <h2><span>Branded Collections</span></h2>
+                                <span>flat 60% off for first 30 Customer.</span>
+                                <p>Quis est tam dissimile homini. Quia dolori non voluptas.</p>
+                                <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
-            <div class="item">
-                <figure>
-                    <img src="assets/img/slider/2.jpg" class="hidden-xs hidden-sm " alt="" />
-                    <img src="assets/img/slider/2xs.jpg" class="hidden-lg hidden-md" alt="" />
-                    <figcaption>
-                        <div class="container">
-                            <span class="special">Sexy Collection</span>
-                            <h2><span>Being a Sexy Is Not Crime</span></h2>
-                            <span>flat 60% off for first 30 Customer.</span>
-                            <p>Quis est tam dissimile homini. Quia dolori non voluptas.</p>
-                            <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="item">
-                <figure>
-                    <img src="assets/img/slider/3.jpg" class="hidden-xs hidden-sm" alt="" />
-                    <img src="assets/img/slider/3xs.jpg" class="hidden-lg hidden-md" alt="" />
-                    <figcaption>
-                        <div class="container">
-                            <span class="special">Fashion Style</span>
-                            <h2><span>Branded Collections</span></h2>
-                            <span>flat 60% off for first 30 Customer.</span>
-                            <p>Quis est tam dissimile homini. Quia dolori non voluptas.</p>
-                            <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-    </div> --}}
+        </div> --}}
 
 
     <div>
