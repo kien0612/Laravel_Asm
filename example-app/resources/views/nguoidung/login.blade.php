@@ -24,12 +24,18 @@
                     @csrf
                     <p class="form-row pd-right">
                         <label for="username">Nhập Email <span class="required">*</span></label>
-                        <input type="email" name="email" id="username" class="form-controller"  placeholder="Nhập email vào !" {{{old('email')}}} >
+                        <input type="email" name="email" id="username" class="form-controller"  placeholder="Nhập email vào !" value="{{{old('email')}}} ">
                     </p>
+                    @error('email')
+                    <div class="alert alert-danger"> {{$message}} </div>
+                    @enderror
                     <p class="form-row pd-left">
                         <label for="password">Passwords <span class="required">*</span></label>
-                        <input type="text" name="password" id="password" class="form-controller"  placeholder="Nhập mật Khẩu vào" >
+                        <input type="password" name="password" id="password" class="form-controller"  placeholder="Nhập mật Khẩu vào " value="{{{old('password')}}} " >
                     </p>
+                    @error('password')
+                    <div class="alert alert-danger"> {{$message}} </div>
+                    @enderror
                     <p class="form-row pd-left">
                         
                         <input type="checkbox" name="remember"  >

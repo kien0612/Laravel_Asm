@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Giaodiem\NguoiDung;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
 
 class Nguoidungcontroller extends Controller
 {
@@ -12,9 +14,16 @@ class Nguoidungcontroller extends Controller
      */
     public function index()
     {
-       return view('nguoidung.index');
+        $sanpham=DB::table('san_phams')->get();
+       
+       return view('nguoidung.index' , compact('sanpham'));
     }
-
+    public function quickview(string $id_san_pham)
+    {
+        
+        $sanphams = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
+        return view('nguoidung.index', compact('sanphams'));
+    }
     /**
      * Show the form for creating a new resource.
      */
