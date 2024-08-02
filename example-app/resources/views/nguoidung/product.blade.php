@@ -67,46 +67,51 @@
                 </div>
                 <!--//=========Product Sorting Section End=========//-->
                 <!--product Item-->
-                <div
-                    class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix">
-                    <div class="wa-products">
-                        <div class="wa-products-thumbnail wa-item">
-                            <img src="assets/img/product/front-1.jpg" alt="">
-                            <div class="caption">
-                                <div class="caption-text">
-                                    <ul class="wa-products-icon">
-                                        <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#" class="quickview-box-btn" title="Quick View"><i
-                                                    class="fa fa-eye"></i></a></li>
-                                        <li><a href="#" title="Add to cart"><i class="fa fa-shopping-basket"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clear"></div>
+                @foreach ($listSp as $item)
+                    <div
+                        class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix">
+                        <div class="wa-products">
+                            <div class="wa-products-thumbnail wa-item">
+                                <img src="{{ $item->hinh_anh }}" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <ul class="wa-products-icon">
+                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a>
+                                            </li>
+                                            <li><a href="#" class="quickview-box-btn" title="Quick View"><i
+                                                        class="fa fa-eye"></i></a></li>
+                                            <li><a href="#" title="Add to cart"><i
+                                                        class="fa fa-shopping-basket"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="wa-products-caption">
-                            <h2>
-                                <a href="product-detail.html">product title</a>
-                            </h2>
-                            <div class="clear"></div>
-                            <ul class="ratings">
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                            </ul>
-                            <div class="clear"></div>
-                            <span class="price">
-                                <del>$200</del>
-                                $100
-                            </span>
+                            <div class="wa-products-caption">
+                                <h2>
+                                    <a href="{{ route('productdetail') }}">{{$item->ten_san_pham}}</a>
+                                </h2>
+                                <div class="clear"></div>
+                                <ul class="ratings">
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
+                                </ul>
+                                <div class="clear"></div>
+                                <span class="price">
+                                    <del>$200</del>
+                                    {{ number_format($item->gia, 2) }}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+                {{-- {{$item->links()}} --}}
                 <!--product Item-->
-                <div
+                {{-- <div
                     class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix">
                     <div class="wa-products">
                         <div class="wa-products-thumbnail wa-item">
@@ -543,7 +548,7 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="clear"></div>
                 <div class="col-md-12">
                     <!--//==Pagination Start==//-->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Giaodiem\NguoiDung;
 
 use App\Http\Controllers\Controller;
+use App\Models\SanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
@@ -11,7 +12,10 @@ class Nguoidungcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
      */
+    private $view;
+
     public function index()
     {
         $sanpham=DB::table('san_phams')->get();
@@ -30,7 +34,9 @@ class Nguoidungcontroller extends Controller
  
     public function product()
     {
-        return view('nguoidung.product');
+        $objSp = new SanPham();
+        $this->view['listSp'] = $objSp->loadAllDataProductWithPager();
+        return view('nguoidung.product', $this->view);
     }
     public function checkout()
     {

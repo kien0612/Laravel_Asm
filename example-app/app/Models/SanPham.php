@@ -37,7 +37,7 @@ class SanPham extends Model
         return self::select('san_phams.*', 'danh_mucs.ten_danh_muc')
             ->join('danh_mucs', 'san_phams.id_danh_muc', '=', 'danh_mucs.id_danh_muc')
             ->latest('san_phams.id_san_pham')
-            ->paginate(10);
+            ->paginate(8);
 
     }
     public function insertDataSanPham($params)
