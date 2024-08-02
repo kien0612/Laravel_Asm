@@ -18,7 +18,7 @@
 @endif
 <h1>Sửa danh muc</h1>
 <br>
-<form action="{{ route('nhanvien.sanpham.update', ['id' => $listSp->id_san_pham]) }}" method="POST">
+<form action="{{ route('nhanvien.sanpham.update', ['sanpham' => $listSp->id_san_pham]) }}" method="POST">
     @csrf
     @method('PUT') 
     <div class="mb-3">

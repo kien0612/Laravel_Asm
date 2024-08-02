@@ -52,22 +52,25 @@ class SanPham extends Model
 
     public function loadIdDataSanPham($id)
     {
-        $query = SanPham::query()->find($id);
-        return $query;
+        // $query = SanPham::query()->find($id);
+        // return $query;
+        return self::find($id);
     }
 
     public function deleteDataSanPham($id)
     {
-        $query = SanPham::query()
-            ->find($id)
-            ->delete();
-        return $query;
+        // $query = SanPham::query()
+        //     ->find($id)
+        //     ->delete();
+        // return $query;
+        return self::destroy($id);
     }
 
     public function updateDataSanPham($params, $id)
     {
-        $params['updated_at'] = now();
-        $res = SanPham::query()->find($id)->update($params);
-        return $res;
+        // $params['updated_at'] = now();
+        // $res = SanPham::query()->find($id)->update($params);
+        // return $res;
+        return self::where('id_san_pham', $id)->update($params);
     }
 }
