@@ -16,7 +16,8 @@ use App\Http\Controllers\Nhanviens\BannerMakettingController as NhanvienBannerMa
 use App\Http\Controllers\Nhanviens\ThanhToanController;
 use App\Http\Controllers\Nhanviens\GioHangController;
 use App\Http\Controllers\Nhanviens\HoaDonController;
-
+use App\Http\Controllers\Nhanviens\SanPhamNhanVienController;
+use App\Http\Controllers\Nhanviens\KhuyenMaiNhanVienController;
 
 /*
 |--------------------------------------------------------------------------
