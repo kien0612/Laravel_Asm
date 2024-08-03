@@ -85,7 +85,7 @@ route::group(
   [
     'prefix'=>'nhanvien',
     'as'=>'nhanvien.',
-    // 'middleware' =>'checkAdmin'
+    'middleware' =>'checkAdmin'
   ], function(){
     Route::get('nhanvien', [nhanvienController::class, 'nhanvien'])->name('nhanvien');
     Route::resource('danhmuc', danhmucnhanvienController::class);
@@ -98,4 +98,4 @@ route::group(
     Route::resource('gio_hang', GioHangController::class);
     Route::resource('hoa_don', HoaDonController::class);
 }
-)->withoutMiddleware(TrimStrings::class);
+);
