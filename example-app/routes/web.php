@@ -6,6 +6,8 @@ use App\Http\Controllers\Admins\KhuyenmaiControoller;
 use App\Http\Controllers\Admins\SamphamController;
 use App\Http\Controllers\Admins\DanhGiaController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\NhanViens\DanhGiaNhanVienController;
+use App\Http\Middleware\TrimStrings;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
 use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
@@ -83,17 +85,17 @@ route::group(
   [
     'prefix'=>'nhanvien',
     'as'=>'nhanvien.',
-    'middleware' =>'checkAdmin'
+    // 'middleware' =>'checkAdmin'
   ], function(){
     Route::get('nhanvien', [nhanvienController::class, 'nhanvien'])->name('nhanvien');
     Route::resource('danhmuc', danhmucnhanvienController::class);
     Route::resource('sanpham', SanPhamNhanVienController::class);
     Route::resource('khuyenmai', KhuyenMaiNhanVienController::class);
+    Route::resource('danhgia', DanhGiaNhanVienController::class);
  
     Route::resource('banner', NhanvienBannerMakettingController::class);
     Route::resource('thanh_toan', ThanhToanController::class);
     Route::resource('gio_hang', GioHangController::class);
     Route::resource('hoa_don', HoaDonController::class);
 }
-
-);
+)->withoutMiddleware(TrimStrings::class);

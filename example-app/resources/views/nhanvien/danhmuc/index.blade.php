@@ -1,4 +1,6 @@
 @extends('nhanvien.layout');
+@section('title', 'Danh Sách Danh Mục')
+
 @section('content')
 <a class="btn btn-dark" href="{{ route('nhanvien.danhmuc.create') }}">Them moi</a>
 <table class="table">

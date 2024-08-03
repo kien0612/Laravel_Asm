@@ -16,7 +16,7 @@
 @if (session('error'))
     {{session('error')}}
 @endif
-<h1>Sửa danh muc</h1>
+<h1>Sửa sản phẩm</h1>
 <br>
 <form action="{{ route('nhanvien.sanpham.update', ['sanpham' => $listSp->id_san_pham]) }}" method="POST">
     @csrf
