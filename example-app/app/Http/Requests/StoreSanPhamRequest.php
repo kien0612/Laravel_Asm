@@ -23,7 +23,7 @@ class StoreSanPhamRequest extends FormRequest
     {
         return [
             'ten_san_pham' => ['required', 'string', 'max:255'],
-            // 'hinh_anh' => ['nullable','image','mimes:jpg, png, jpeg','max:2048'],
+            'hinh_anh' => ['nullable','image','mimes:jpg, png, jpeg','max:2048'],
             'gia' => ['required', 'numeric', 'min:0'],
             'so_luong' => ['required', 'integer', 'min:0'],
             'ngay_nhap' => ['required', 'date'],
@@ -37,9 +37,9 @@ class StoreSanPhamRequest extends FormRequest
         return [
             'ten_san_pham.required' => 'Tên sản phẩm là bắt buộc.',
             'ten_san_pham.unique' => 'Tên sản phẩm đã tồn tại.',
-            // 'hinh_anh.image' => 'Trường ảnh phải là một tập tin ảnh',
-            // 'hinh_anh.mimes' => 'Trường ảnh phải có định dạng jpg, png, hoặc jpeg',
-            // 'hinh_anh.max' => 'Trường ảnh không được vượt quá 2MB',
+            'hinh_anh.image' => 'Trường ảnh phải là một tập tin ảnh',
+            'hinh_anh.mimes' => 'Trường ảnh phải có định dạng jpg, png, hoặc jpeg',
+            'hinh_anh.max' => 'Trường ảnh không được vượt quá 2MB',
             'gia.required' => 'Giá là bắt buộc.',
             'gia.numeric' => 'Giá phải là số.',
             'so_luong.required' => 'Số lượng là bắt buộc.',

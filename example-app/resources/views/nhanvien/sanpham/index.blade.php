@@ -26,7 +26,10 @@ Danh sách sản phẩm
             <th scope="col">Giá</th>
             <th scope="col">Số lượng</th>
             <th scope="col">Hình ảnh</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col">Ngày nhập hàng</th>
             <th scope="col">Danh mục</th>
+            <th scope="col">Trang Thái đơn hành</th>
             <th scope="col">Thao tác</th>
         </tr>
     </thead>
@@ -35,24 +38,21 @@ Danh sách sản phẩm
             <tr>
                 <td>{{ $item->id_san_pham }}</td>
                 <td>{{ $item->ten_san_pham }}</td>
-                <td>{{ number_format($item->gia, 2) }}</td>
+                <td>{{ $item->gia }}</td>
                 <td>{{ $item->so_luong }}</td>
-                <td>
-                    @if (!isset($item->hinh_anh) || $item->hinh_anh === '')
-                        Không có ảnh
-                    @else
-                        <img src="{{ Storage::url($item->hinh_anh) }}" alt="{{ $item->ten_san_pham }}" style="max-width: 100px;">
-                    @endif
-                </td>
+                <td> <img src="{{ Storage::url($item->hinh_anh) }}" width="100" height="100" alt=""></td>
+                <td>{{ $item->mo_ta }}</td>
+                <td>{{ $item->ngay_nhap }}</td>
                 <td>{{ $item->ten_danh_muc}}</td>
+                <td>{{ $item->trang_thai }}</td>
                 <td>
-                    <form action="{{ route('nhanvien.sanpham.destroy', ['id' => $item->id_san_pham]) }}" method="POST">
+                    <form action="{{ route('nhanvien.sanpham.destroy', ['sanpham' => $item->id_san_pham]) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"
                             onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</button>
                     </form>
-                    <a href="{{ route('nhanvien.sanpham.edit', ['id' => $item->id_san_pham]) }}" class="btn btn-warning">Sửa</a>
+                    <a href="{{ route('nhanvien.sanpham.edit', $item->id_san_pham)}}" class="btn btn-warning">Sửa</a>
                 </td>
             </tr>
         @endforeach

@@ -16,9 +16,9 @@
 @if (session('error'))
     {{session('error')}}
 @endif
-<h1>Sửa danh muc</h1>
+<h1>Sửa danh mục</h1>
 <br>
-<form action="{{ route('nhanvien.danhmuc.update', ['id' => $listDm->id_danh_muc]) }}" method="POST">
+<form action="{{ route('nhanvien.danhmuc.update', ['danhmuc' => $listDm->id_danh_muc]) }}" method="POST">
     @csrf
     @method('PUT') 
     <div class="mb-3">

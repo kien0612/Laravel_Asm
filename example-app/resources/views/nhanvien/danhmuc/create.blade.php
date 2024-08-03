@@ -16,7 +16,7 @@
 @if (session('error'))
     {{session('error')}}
 @endif
-<h1>Thêm mới danh muc</h1>
+<h1>Thêm mới danh mục</h1>
 <br>
 <form action="{{route('nhanvien.danhmuc.store')}}" method="POST">
     @csrf
