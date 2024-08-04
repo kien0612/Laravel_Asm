@@ -12,7 +12,6 @@ use App\Http\Middleware\TrimStrings;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Giaodiem\NguoiDung\Nguoidungcontroller;
 use App\Http\Controllers\Giaodiem\Admin\Admincontroller;
-use App\Http\Controllers\Giaodien\Nhanvien\nhanviencontroller;
 use App\Http\Controllers\Nhanviens\danhmuccontroller as NhanviensDanhmuccontroller;
 use App\Http\Controllers\Nhanviens\danhmucnhanvienController;
 use App\Http\Controllers\Nhanviens\BannerMakettingController as NhanvienBannerMakettingController;
@@ -21,6 +20,7 @@ use App\Http\Controllers\Nhanviens\GioHangController;
 use App\Http\Controllers\Nhanviens\HoaDonController;
 use App\Http\Controllers\Nhanviens\SanPhamNhanVienController;
 use App\Http\Controllers\Nhanviens\KhuyenMaiNhanVienController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -89,10 +89,11 @@ route::group(
   [
     'prefix' => 'nhanvien',
     'as' => 'nhanvien.',
-    'middleware' => 'checkAdmin'
+    'middleware' => 'nhanvien'
   ],
   function () {
-    Route::get('nhanvien', [nhanvienController::class, 'nhanvien'])->name('nhanvien');
+    route::get('nhanvien',[danhmucnhanvienController::class ,'nhanvien'])->name('nhanvien');
+   
     Route::resource('danhmuc', danhmucnhanvienController::class);
     Route::resource('sanpham', SanPhamNhanVienController::class);
     Route::resource('khuyenmai', KhuyenMaiNhanVienController::class);
