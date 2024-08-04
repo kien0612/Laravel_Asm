@@ -20,6 +20,7 @@ class BannerMakettingController extends Controller
         return view('admin.banner.index', compact('banner'));
     }
 
+ 
     /**
      * Show the form for creating a new resource.
      */

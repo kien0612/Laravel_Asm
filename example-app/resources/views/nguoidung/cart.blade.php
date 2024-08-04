@@ -67,153 +67,66 @@
                         <!--//==Order Table titles End==//-->
                         <!--//==Order Table Row ==//-->
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="order-row padTB20">
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center padTB15">
-                                            <div class="order-table-cell">
-                                                <a href="product-detail.html"><img src="assets/img/product/cart1.jpg" alt=""></a>
-                                                <div class="clear"></div>
+
+                          
+                          
+                            @if(session('cart'))
+                            @php $total = 0 @endphp
+                                @foreach(session('cart') as $id_san_pham => $details)
+                                @php $total += $details['gia'] * $details['so_luong'] @endphp
+                                 <tr rowId="{{ $id_san_pham }}">
+                                    <div class="col-md-12">
+                                        <div class="order-row padTB20" >
+                                            <div class="col-md-2 col-sm-2">
+                                                <div class="order-data order-table text-center padTB15">
+                                                    <div class="order-table-cell">
+                                                        <a href="product-detail.html"><img src="{{ Storage::url($details['hinh_anh']) }}" alt=""></a>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <div class="order-data order-table text-center">
+                                                    <div class="order-table-cell order-text">           
+                                                        <strong><a href="product-detail.html">{{ $details['ten_san_pham'] }}</a></strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <div class="order-data order-table text-center">
+                                                    <div class="order-table-cell order-text">
+                                                        <strong>{{ $details['gia'] }} $</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <div class="order-data order-table text-center">
+                                                    <div class="order-table-cell order-text">
+                                                        <input type="number" value="{{ $details['so_luong'] }}" class="qty" name="qty1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <div class="order-data order-table text-center">
+                                                    <div class="order-table-cell order-text">
+                                                        <strong>$ {{ $total }}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <div class="order-data order-table text-center">
+                                                    <div class="order-table-cell order-text">
+                                                      
+                                                     <strong>  <button class="fa fa-trash delete-product">XÓA </button></strong>
+                                                    </div>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">           
-                                                <strong><a href="product-detail.html">Product Title</a></strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong>170.00 $</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <input type="number" value="1" class="qty" name="qty1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong>170.00 $</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//==Order Table Row ==//-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="order-row last padTB20">
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center padTB15">
-                                            <div class="order-table-cell">
-                                                <a href="product-detail.html"><img src="assets/img/product/cart2.jpg" alt=""></a>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">           
-                                                <strong><a href="product-detail.html">Product Title</a></strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong>170.00 $</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <input type="number" value="1" class="qty" name="qty1">											
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong>170.00 $</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//==Order Table Row ==//-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="order-row last padTB20">
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center padTB15">
-                                            <div class="order-table-cell">
-                                                <a href="product-detail.html"><img src="assets/img/product/cart3.jpg" alt=""></a>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">           
-                                                <strong><a href="product-detail.html">Product Title</a></strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong>170.00 $</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <input type="number" value="1" class="qty" name="qty1">											
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong>170.00 $</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2">
-                                        <div class="order-data order-table text-center">
-                                            <div class="order-table-cell order-text">
-                                                <strong><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                 </tr>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -263,15 +176,15 @@
                         <div class="wv_shipping">
                             <div class="wv_subtotaling">
                                 <div class="col-xs-6 col-md-6 wv_subtotal_left textL">
-                                    <p>subtotal</p>
+                                    <p>Cộng Tổng</p>
                                 </div>
                                 <div class="col-xs-6 col-md-6 wv_subtotal_right textR">
-                                    <p>$340.00</p>
+                                    <p>$ {{ $total }}</p>
                                 </div>
                             </div>
                             <div class="wv_subtotaling">
                                 <div class="col-xs-6 col-md-6 wv_subtotal_left textL">
-                                    <p>Deduction</p>
+                                    <p>Khấu trừ</p>
                                 </div>
                                 <div class="col-xs-6 col-md-6 wv_subtotal_right textR">
                                     <p>-$15.00</p>
@@ -279,10 +192,10 @@
                             </div>
                             <div class="wv_totaling">
                                 <div class="col-xs-6 col-md-6 wv_total_left textL">
-                                    <p>Total</p>
+                                    <p>Phải trả</p>
                                 </div>
                                 <div class="col-xs-6 col-md-6 wv_total_right textR">
-                                    <p>$325.00</p>
+                                    <p>$ {{ $total }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -409,3 +322,4 @@
             </div>
         </div>
 @endsection
+
