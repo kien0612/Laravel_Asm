@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/color.css') }}" id="colors">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -123,13 +124,13 @@
                                     <a class="closeMenu"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
                                     <ul class="user-menu-items">
                                         <li class="clearfix">
-                                            <a href="{{route('login')}}">Login</a>
+                                            <a href="{{ route('login') }}">Login</a>
                                         </li>
                                         <li class="clearfix">
-                                            <a href="{{route('cart')}}">Track Order</a>
+                                            <a href="{{ route('cart') }}">Track Order</a>
                                         </li>
                                         <li class="clearfix">
-                                            <a href="{{route('logout')}}">Logout</a>
+                                            <a href="{{ route('logout') }}">Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -143,34 +144,20 @@
                                 <div class="shopping-cart">
                                     <a class="closeCart"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
                                     <ul class="shopping-cart-items">
-                                        <li class="clearfix">
-                                            <img src="assets/img/product/cart1.jpg" width="70" height="70"
-                                                alt="cart item" />
-                                            <a href="#"><span class="item-name">Product Title Here...</span></a>
-                                            <span class="item-price">$849.99</span>
-                                            <span class="item-quantity">x 01</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <img src="assets/img/product/cart2.jpg" width="70" height="70"
-                                                alt="cart item" />
-                                            <a href="#"><span class="item-name">Product Title Here...</span></a>
-                                            <span class="item-price">$1,249.99</span>
-                                            <span class="item-quantity">x 01</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <img src="assets/img/product/cart3.jpg" width="70" height="70"
-                                                alt="cart item" />
-                                            <a href="#"><span class="item-name">Mauris et pulvinar...</span></a>
-                                            <span class="item-price">$129.99</span>
-                                            <span class="item-quantity">x 01</span>
-                                        </li>
+                                        @if (session('cart'))
+                                            @foreach (session('cart') as $id_san_pham => $details)
+                                                <li class="clearfix">
+                                                    <img src="{{ Storage::url($details['hinh_anh']) }}" width="70"
+                                                        height="70" alt="cart item" />
+                                                    <a href="#"><span
+                                                            class="item-name">{{ $details['ten_san_pham'] }}</span></a>
+                                                    <span class="item-price">VND{{ $details['gia'] }}</span> <br>
+                                                    <span class="item-quantity">Sl{{ $details['so_luong'] }}</span>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
-                                    <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <span class="lighter-text pull-left">Total:</span>
-                                            <span class="main-color-text pull-right">$2,229.97</span>
-                                        </div>
-                                    </div>
+
                                     <!--end shopping-cart-footer -->
                                     <a href="#" class="theme-button">Checkout</a>
                                 </div>
@@ -391,7 +378,7 @@
         <!--//==Navbar End==//-->
     </header>
 
-        {{-- <div class="wa_main_bn_wrap">
+    {{-- <div class="wa_main_bn_wrap">
             <div id="home1-main-slider" class="owl-carousel owl-theme">
                 <div class="item">
                     <figure>
@@ -708,7 +695,26 @@
     <script src="assets/plugins/owl-carousel/js/owl.carousel.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+<script type="text/javascript">
+ $(".delete-product").click(function (e) {
+    e.preventDefault();
 
+    var ele = $(this);
+
+    if (confirm("Bạn có muốn xóa không?")) {
+     
+        $.ajax({
+            url: '{{ route('delete.cart.product') }}',
+            method: "DELETE",
+            data: {
+                _token: '{{ csrf_token() }}',
+                id_san_pham: ele.parents("tr").attr("rowId")
+            },
+           
+        });    
+    }
+});
+</script>
 <!-- Mirrored from webaashi.com/TF/html/aashi-fashion-shop-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jul 2024 13:47:19 GMT -->
 
 </html>

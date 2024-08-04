@@ -2,25 +2,25 @@
 @section('content')
     <div class="wa_main_bn_wrap">
         <div id="home1-main-slider" class="owl-carousel owl-theme">
-          @foreach ($banner as $item)
-          <div class="item">
-            <figure>
-                <img src="{{ Storage::url($item->hinh_anh) }}"lass="hidden-xs hidden-sm " width="1440px" height="900px" alt="" />
-                <img src="{{ Storage::url($item->hinh_anh) }}" class="hidden-lg hidden-md" alt="" />
-                <figcaption>
-                    <div class="container">
-                        <span class="special">latest Collection</span>
-                        <h2><span>{{$item->ten_banner}}</span></h2>
-                        <span>flat 60% off for first 30 Customer.</span>
-                        <p>{{$item->mo_ta}}</p>
-                        <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
-                    </div>
-                </figcaption>
-            </figure>
-        </div>
-              
-          @endforeach
-       
+            @foreach ($banner as $item)
+                <div class="item">
+                    <figure>
+                        <img src="{{ Storage::url($item->hinh_anh) }}"lass="hidden-xs hidden-sm " width="1440px" height="900px"
+                            alt="" />
+                        <img src="{{ Storage::url($item->hinh_anh) }}" class="hidden-lg hidden-md" alt="" />
+                        <figcaption>
+                            <div class="container">
+                                <span class="special">latest Collection</span>
+                                <h2><span>{{ $item->ten_banner }}</span></h2>
+                                <span>flat 60% off for first 30 Customer.</span>
+                                <p>{{ $item->mo_ta }}</p>
+                                <a href="collection-grid-sidebar.html" class="theme-button wa-theme-bg">Shop Now</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            @endforeach
+
         </div>
     </div>
     <!--//=======Main Slider End=======//-->
@@ -122,11 +122,11 @@
                 </div>
                 <!--//==Section Heading End==//-->
             </div>
-            @if(session('success'))
-        <div class="alert alert-success">
-          {{ session('success') }}
-        </div> 
-    @endif
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="row" id="MixItUp1">
                 <!--//==product Item==//-->
                 @foreach ($sanpham as $item)
@@ -139,13 +139,13 @@
                                 <div class="caption">
                                     <div class="caption-text">
                                         <ul class="wa-products-icon">
-                                            <li><a href="#" title="Add to wishlist"><i
-                                                        class="fa fa-heart-o"></i></a></li>
+                                            <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"></i></a>
+                                            </li>
                                             <li><a href="{{ route('edit', $item->id_san_pham) }}" class="quickview-box-btn"
                                                     title="Quick View"><i class="fa fa-eye"></i></a></li>
 
-                                            <li><a href="{{ route('addbox.to.cart',$item->id_san_pham) }}" title="Add to cart"><i
-                                                        class="fa fa-shopping-basket"></i></a></li>
+                                            <li><a href="{{ route('addbox.to.cart', $item->id_san_pham) }}"
+                                                    title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
                                         </ul>
                                         <div class="clear"></div>
                                     </div>
