@@ -20,6 +20,9 @@
     </div>
     <!--//==Page Header End==//-->
     <!--//=========product Detail Start=========//-->
+    @foreach($sanpham as $item)
+        
+    @endforeach
     <section class="page_single">
         <div class="container">
             <div class="row padTB100">
@@ -31,23 +34,6 @@
                                 <a href="assets/img/product/product-detail.jpg" class="fancybox" data-fancybox-group="group"
                                     title="Product Title Here"> <img src="assets/img/product/product-detail.jpg"
                                         alt=""> </a>
-                            </div>
-                            <div id="wa-slide-image" class="owl-carousel  wa-slide-image carousel-style-1">
-                                <a href="assets/img/product/product-detail-1.jpg" class="fancybox"
-                                    data-fancybox-group="group" title="Product Title Here"> <img
-                                        src="assets/img/product/product-detail-1.jpg" alt=""> </a>
-                                <a href="assets/img/product/product-detail-2.jpg" class="fancybox"
-                                    data-fancybox-group="group" title="Product Title Here"> <img
-                                        src="assets/img/product/product-detail-2.jpg" alt=""> </a>
-                                <a href="assets/img/product/product-detail-3.jpg" class="fancybox"
-                                    data-fancybox-group="group" title="Product Title Here"> <img
-                                        src="assets/img/product/product-detail-3.jpg" alt=""> </a>
-                                <a href="assets/img/product/product-detail-4.jpg" class="fancybox"
-                                    data-fancybox-group="group" title="Product Title Here"> <img
-                                        src="assets/img/product/product-detail-4.jpg" alt=""> </a>
-                                <a href="assets/img/product/product-detail-5.jpg" class="fancybox"
-                                    data-fancybox-group="group" title="Product Title Here"> <img
-                                        src="assets/img/product/product-detail-5.jpg" alt=""> </a>
                             </div>
                         </div>
                         <!--Content Column-->
@@ -92,7 +78,7 @@
                                                         min="0" placeholder="">
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-4 padL0">
+                                            {{-- <div class="col-md-5 col-sm-4 padL0">
                                                 <div class="form-group">
                                                     <label><strong>Color :</strong> </label>
                                                     <div class="clear"></div>
@@ -115,8 +101,8 @@
                                                         <option>Large</option>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group col-sm-12 padL0 quantity">
+                                            </div> --}}
+                                            {{-- <div class="form-group col-sm-12 padL0 quantity">
                                                 <label><strong>Tags</strong></label>
                                                 <div class="tag-list">
                                                     <a class="btnlight" href="#"><i class="fa fa-tags"
@@ -134,7 +120,7 @@
                                                     <a class="btnlight" href="#"><i class="fa fa-tags"
                                                             aria-hidden="true"></i> template</a>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>

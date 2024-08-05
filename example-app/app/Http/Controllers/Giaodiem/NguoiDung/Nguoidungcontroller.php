@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Giaodiem\NguoiDung;
 
 use App\Http\Controllers\Controller;
 use App\Models\SanPham;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
@@ -37,6 +38,7 @@ class Nguoidungcontroller extends Controller
     }
 
 
+<<<<<<< HEAD
     public function addtocart( $id_san_pham)
     {
         $sanpham = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
@@ -57,35 +59,33 @@ class Nguoidungcontroller extends Controller
         session()->put('cart', $cart);
         // dd($cart); // Uncomment for debugging if needed
         return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
+=======
+    public function addToCart(SanPham $sanpham, Cart $cart){
+        $cart->add($sanpham);
+        session()->flash('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
+        return redirect()->route('cart');
+>>>>>>> 11d66c806d1498769fab40fe6af052b2e10fa8f6
     }
-
-    public function deleteProduct(Request $request)
-    {
-        if($request->id_san_pham) {
-            $cart = session()->get('gio_hangs');
-            if(isset($cart[$request->id_san_pham])) {
-                unset($cart[$request->id_san_pham]);
-                session()->put('gio_hangs', $cart);
-            }
-            session()->flash('success', 'Sản phẩm đã được xóa thành công.');
-        }
-    
-        return response()->json(['success' => true]);
+    public function view(Cart $cart){
+        return view('nguoidung.cart', compact('cart'));
+    }
+    public function deleteCart($id, Cart $cart){
+        $cart->delete($id);
+        session()->flash('success', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
+        return redirect()->route('cart');
     }
 
     public function checkout()
     {
         return view('nguoidung.checkout');
     }
-    public function cart()
+   
+    public function productdetail($id_san_pham)
     {
-      
-        return view('nguoidung.cart');
+        $sanpham = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
+        return view('nguoidung.productdetail', compact('sanpham'));
     }
-    public function productdetail()
-    {
-        return view('nguoidung.productdetail');
-    }
+    
     public function contact()
     {
         return view('nguoidung.contact');
