@@ -1,5 +1,6 @@
 @extends('nguoidung.layout')
 @section('content')
+
     <div class="wa_main_bn_wrap">
         <div id="home1-main-slider" class="owl-carousel owl-theme">
             @foreach ($banner as $item)
@@ -144,7 +145,7 @@
                                             <li><a href="{{ route('edit', $item->id_san_pham) }}" class="quickview-box-btn"
                                                     title="Quick View"><i class="fa fa-eye"></i></a></li>
 
-                                            <li><a href="{{ route('addbox.to.cart', $item->id_san_pham) }}"
+                                            <li><a href="{{ route('cart.add', $item->id_san_pham) }}"
                                                     title="Add to cart"><i class="fa fa-shopping-basket"></i></a></li>
                                         </ul>
                                         <div class="clear"></div>
@@ -152,7 +153,7 @@
                                 </div>
                             </div>
                             <div class="wa-products-caption">
-                                <h2><a href="product-detail.html">{{ $item->ten_san_pham }}</a></h2>
+                                <h2><a href="{{ route('productdetail',$item->id_san_pham) }}">{{ $item->ten_san_pham }}</a></h2>
                                 <div class="clear"></div>
                                 <ul class="ratings">
                                     <li><a href="#"><i class="fa fa-star"></i></a></li>

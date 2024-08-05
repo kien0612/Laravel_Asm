@@ -137,11 +137,11 @@
                                 <!--end user-menu -->
                             </li>
                             <li>
-                                <a href="#" class="cartIcon">
+                                <a href="{{ route ('cart')}}" class="cartIcon">
                                     <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                     <sup>{{ count((array) session('cart')) }}</sup>
                                 </a>
-                                <div class="shopping-cart">
+                                {{-- <div class="shopping-cart">
                                     <a class="closeCart"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
                                     <ul class="shopping-cart-items">
                                         @if (session('cart'))
@@ -160,7 +160,7 @@
 
                                     <!--end shopping-cart-footer -->
                                     <a href="#" class="theme-button">Checkout</a>
-                                </div>
+                                </div> --}}
                                 <!--end shopping-cart -->
                             </li>
                         </ul>
@@ -202,7 +202,7 @@
                                                     <li><a href="collection-list-sidebar.html">Collection List Sidebar</a></li>
                                                     <li><a href="collection-grid-fullwidth.html">Collection Grid fullwidth</a></li>
                                                     <li><a href="collection-list-fullwidth.html">Collection List fullwidth</a></li> --}}
-                                                <li><a href="{{ route('productdetail') }}">Product detail</a></li>
+                                                {{-- <li><a href="{{ route('product',$item->id_san_pham) }}">Product detail</a></li> --}}
                                                 <li><a href="{{ route('cart') }}">Cart Page</a></li>
                                                 <li><a href="{{ route('checkout') }}">Checkout Page</a></li>
                                             </ul>
@@ -695,26 +695,6 @@
     <script src="assets/plugins/owl-carousel/js/owl.carousel.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
-<script type="text/javascript">
- $(".delete-product").click(function (e) {
-    e.preventDefault();
-
-    var ele = $(this);
-
-    if (confirm("Bạn có muốn xóa không?")) {
-     
-        $.ajax({
-            url: '{{ route('delete.cart.product') }}',
-            method: "DELETE",
-            data: {
-                _token: '{{ csrf_token() }}',
-                id_san_pham: ele.parents("tr").attr("rowId")
-            },
-           
-        });    
-    }
-});
-</script>
 <!-- Mirrored from webaashi.com/TF/html/aashi-fashion-shop-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jul 2024 13:47:19 GMT -->
 
 </html>

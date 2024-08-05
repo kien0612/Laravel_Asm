@@ -36,16 +36,22 @@ use App\Http\Controllers\Nhanviens\KhuyenMaiNhanVienController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+
 Route::get('/', [Nguoidungcontroller::class, 'index'])->name('/');
 Route::get('/{id_san_phan}/edit', [Nguoidungcontroller::class, 'quickview'])->name('edit')->where('id_san_pham', '[0-9]+');
-route::get('/book/{id_san_pham}', [Nguoidungcontroller::class, 'addtocart'])->name('addbox.to.cart');
-Route::delete('/delete-cart-product', [Nguoidungcontroller::class, 'deleteProduct'])->name('delete.cart.product');
+// route::get('/book/{id_san_pham}', [Nguoidungcontroller::class, 'addtocart'])->name('addbox.to.cart');
+// Route::delete('/delete-cart-product', [Nguoidungcontroller::class, 'deleteProduct'])->name('delete.cart.product');
 
 Route::get('login', [Nguoidungcontroller::class, 'login'])->name('login');
 Route::get('product', [Nguoidungcontroller::class, 'product'])->name('product');
 Route::get('checkout', [Nguoidungcontroller::class, 'checkout'])->name('checkout');
-Route::get('cart', [Nguoidungcontroller::class, 'cart'])->name('cart');
-Route::get('productdetail', [Nguoidungcontroller::class, 'productdetail'])->name('productdetail');
+Route::get('cart', [Nguoidungcontroller::class, 'view'])->name('cart');
+Route::get('/add/{sanpham}', [Nguoidungcontroller::class, 'addToCart'])->name('cart.add');
+Route::get('/delete/{id}', [Nguoidungcontroller::class, 'deleteCart'])->name('cart.delete');
+Route::get('/product/{id_san_pham}', [Nguoidungcontroller::class, 'productdetail'])->name('productdetail');
+
+// Route::get('productdetail', [Nguoidungcontroller::class, 'productdetail'])->name('productdetail');
 Route::get('contact', [Nguoidungcontroller::class, 'contact'])->name('contact');
 Route::get('404', [Nguoidungcontroller::class, 'a404'])->name('404');
 Route::get('defaultpage', [Nguoidungcontroller::class, 'defaultpage'])->name('defaultpage');

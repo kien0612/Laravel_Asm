@@ -90,7 +90,7 @@
                             </div>
                             <div class="wa-products-caption">
                                 <h2>
-                                    <a href="{{ route('productdetail') }}">{{$item->ten_san_pham}}</a>
+                                    <a href="{{ route('productdetail',$item->id_san_pham) }}">{{$item->ten_san_pham}}</a>
                                 </h2>
                                 <div class="clear"></div>
                                 <ul class="ratings">
