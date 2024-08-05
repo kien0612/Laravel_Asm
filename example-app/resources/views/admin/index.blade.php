@@ -828,104 +828,60 @@
                         {{-- banner --}}
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Bnaner</span>
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Tổng Hợp</span>
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarApps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="#sidebarCalendar" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCalendar" data-key="t-calender">
-                                            Calendar
+                                            Danh mục
                                         </a>
                                         <div class="collapse menu-dropdown" id="sidebarCalendar">
                                             <ul class="nav nav-sm flex-column">
                                                 <li class="nav-item">
-                                                    <a href="apps-calendar.html" class="nav-link" data-key="t-main-calender"> Main Calender </a>
+                                                    <a href="{{  route('admin.danhmuc.index') }}" class="nav-link" data-key="t-main-calender">Thêm Danh mục</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-calendar-month-grid.html" class="nav-link" data-key="t-month-grid"> Month Grid </a>
-                                                </li>
+                                              
                                             </ul>
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Chat </a>
+                                        <a href="{{ route('admin.danhgia.index') }}" class="nav-link" data-key="t-chat"> Đánh giá </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#sidebarEmail" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarEmail" data-key="t-email">
-                                            Email
+                                            khuyễn mãi
                                         </a>
                                         <div class="collapse menu-dropdown" id="sidebarEmail">
                                             <ul class="nav nav-sm flex-column">
                                                 <li class="nav-item">
-                                                    <a href="apps-mailbox.html" class="nav-link" data-key="t-mailbox"> Mailbox </a>
+                                                    <a href="{{ route('admin.khuyenmai.index') }}" class="nav-link" data-key="t-mailbox"> Thêm mới khuyễn mãi </a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a href="#sidebaremailTemplates" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebaremailTemplates" data-key="t-email-templates">
-                                                        Email Templates
-                                                    </a>
-                                                    <div class="collapse menu-dropdown" id="sidebaremailTemplates">
-                                                        <ul class="nav nav-sm flex-column">
-                                                            <li class="nav-item">
-                                                                <a href="apps-email-basic.html" class="nav-link" data-key="t-basic-action"> Basic Action </a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a href="apps-email-ecommerce.html" class="nav-link" data-key="t-ecommerce-action"> Ecommerce Action </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
+                                             
                                             </ul>
                                         </div>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#sidebarEcommerce" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarEcommerce" data-key="t-ecommerce">
-                                            Ecommerce
+                                            Sản phẩm
                                         </a>
                                         <div class="collapse menu-dropdown" id="sidebarEcommerce">
                                             <ul class="nav nav-sm flex-column">
                                                 <li class="nav-item">
-                                                    <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products"> Products </a>
+                                                    <a href="{{ route('admin.sampham.index') }}" class="nav-link" data-key="t-products"> Thêm mới san pham </a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details"> Product Details </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product"> Create Product </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-orders.html" class="nav-link" data-key="t-orders">
-                                                        Orders </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-order-details.html" class="nav-link" data-key="t-order-details"> Order Details </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-customers.html" class="nav-link" data-key="t-customers"> Customers </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-cart.html" class="nav-link" data-key="t-shopping-cart"> Shopping Cart </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-checkout.html" class="nav-link" data-key="t-checkout"> Checkout </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-sellers.html" class="nav-link" data-key="t-sellers">
-                                                        Sellers </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-seller-details.html" class="nav-link" data-key="t-sellers-details"> Seller Details </a>
-                                                </li>
+                                               
                                             </ul>
                                         </div>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#sidebarProjects" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProjects" data-key="t-projects">
-                                            Projects
+                                            Gỏi hàng
                                         </a>
                                         <div class="collapse menu-dropdown" id="sidebarProjects">
                                             <ul class="nav nav-sm flex-column">
                                                 <li class="nav-item">
-                                                    <a href="apps-projects-list.html" class="nav-link" data-key="t-list"> List
+                                                    <a href="#" class="nav-link" data-key="t-list"> List giở hàng
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
@@ -1159,17 +1115,11 @@
                             <div class="collapse menu-dropdown" id="sidebarLayouts">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Horizontal</a>
+                                        <a href="{{ route('admin.banner.index') }}" target="_blank" class="nav-link" data-key="t-horizontal">Thêm banner</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Detached</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="layouts-two-column.html" target="_blank" class="nav-link" data-key="t-two-column">Two Column</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="layouts-vertical-hovered.html" target="_blank" class="nav-link" data-key="t-hovered">Hovered</a>
-                                    </li>
+                                   
+                                  
+                                  
                                 </ul>
                             </div>
                         </li> <!-- end Dashboard Menu -->

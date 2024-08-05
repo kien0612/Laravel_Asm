@@ -50,7 +50,7 @@ class DanhmucController extends Controller
             'ten_danh_muc' => $request->ten_danh_muc,
            'mo_ta' => $request->mo_ta,
         ]);
-        return redirect()->route('danhmuc.index');
+        return redirect()->route('admin.danhmuc.index');
      
     }
 
@@ -95,7 +95,7 @@ class DanhmucController extends Controller
             'ten_danh_muc' => $request->ten_danh_muc,
            'mo_ta' => $request->mo_ta,
         ]);
-        return redirect()->route('danhmuc.index');
+        return redirect()->route('admin.danhmuc.index');
    
     }
 

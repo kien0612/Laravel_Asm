@@ -37,7 +37,7 @@ class Nguoidungcontroller extends Controller
     }
 
 
-    public function addtocart(string $id_san_pham)
+    public function addtocart( $id_san_pham)
     {
         $sanpham = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
         $cart = session()->get('', []);
