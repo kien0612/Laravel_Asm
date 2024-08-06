@@ -21,7 +21,7 @@
                         @if (!isset($item->hinh_anh))
                             Không có ảnh
                         @else
-                            <img src="{{ Storage::url($item->hinh_anh) }}">
+                            <img src="{{ Storage::url($item->hinh_anh) }}" width="200px">
                         @endif
                     </td>
 
