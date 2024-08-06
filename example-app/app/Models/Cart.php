@@ -1,6 +1,9 @@
 <?php
 namespace App\Models;
 
+use App\Models\GioHang;
+use Illuminate\Support\Facades\Auth;
+
 class Cart
 {
     public $items = [];
@@ -41,16 +44,15 @@ class Cart
     {
         // Cập nhật logic cho sản phẩm
     }
-    
+
     public function delete($id)
     {
         if (isset($this->items[$id])) {
             unset($this->items[$id]);
             session(['cart' => $this->items]);
-            // $this->updateCartInfo();
         }
     }
-    
+
     public function clearCart()
     {
         session()->forget('cart');
@@ -60,18 +62,44 @@ class Cart
     {
         session()->flush();
     }
-    private function getTotalPrice(){
+
+    private function getTotalPrice()
+    {
         $total = 0;
         foreach ($this->items as $item) {
-            $total += $item->so_luong  * $item->gia;
+            $total += $item->so_luong * $item->gia;
         }
         return $total;
     }
-    private function getTotalQuantity(){
+
+    private function getTotalQuantity()
+    {
         $total = 0;
         foreach ($this->items as $item) {
             $total += $item->so_luong;
         }
         return $total;
+    }
+
+    public function saveToDatabase()
+    {
+        if (Auth::check()) {
+            $userId = Auth::id();
+
+            foreach ($this->items as $item) {
+                GioHang::updateOrCreate(
+                    ['id    ' => $userId, 'id_san_pham' => $item->id_san_pham],
+                    ['so_luong' => $item->so_luong,
+                    'tong_tien' => $this->totalPrice ]
+                );
+            }
+
+            // Sau khi lưu vào cơ sở dữ liệu, có thể xóa giỏ hàng trong session
+            $this->clearCart();
+
+            return true;
+        }
+
+        return false;
     }
 }

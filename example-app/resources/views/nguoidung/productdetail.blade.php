@@ -20,157 +20,114 @@
     </div>
     <!--//==Page Header End==//-->
     <!--//=========product Detail Start=========//-->
-    @foreach($sanpham as $item)
-        
-    @endforeach
-    <section class="page_single">
-        <div class="container">
-            <div class="row padTB100">
-                <div class="prod-info-section">
-                    <div class="clearfix">
-                        <!--Thumbnail Column-->
-                        <div class="carousel-column col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                            <div class="wa-product-main-image marB20">
-                                <a href="assets/img/product/product-detail.jpg" class="fancybox" data-fancybox-group="group"
-                                    title="Product Title Here"> <img src="assets/img/product/product-detail.jpg"
-                                        alt=""> </a>
+    @if ($sanpham )
+        <section class="page_single">
+            <div class="container">
+                <div class="row padTB100">
+                    <div class="prod-info-section">
+                        <div class="clearfix">
+                            <!--Thumbnail Column-->
+                            <div class="carousel-column col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                                <div class="wa-product-main-image marB20">
+                                    <a href="assets/img/product/product-detail.jpg" class="fancybox"
+                                        data-fancybox-group="group" title="Product Title Here"> <img
+                                            src="{{ $sanpham->hinh_anh }}" alt=""> </a>
+                                </div>
                             </div>
-                        </div>
-                        <!--Content Column-->
-                        <div class="content-column col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                            <div class="outer wow fadeInRight">
-                                <div class="title-box">
-                                    <div class="inner marB30">
-                                        <h2 class="marB10">Product Title Here.</h2>
-                                        <p class="availability in-stock"><strong>Availability:</strong> <span>In
-                                                stock</span></p>
-                                        <ul class="ratings">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                        </ul>
-                                        <span class="price marB10">
-                                            $100
-                                            <del>$200</del>
-                                            <span class="clear"></span>
-                                        </span>
-                                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-                                            turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor
-                                            sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies .
-                                        </p>
-                                        <p>It has survived not only five centuries, but also the leap into ele ctronic
-                                            typesetting, remaining essentially un changed The industry's standard dummy text
-                                            ever
-                                            since.
-                                        </p>
-                                    </div>
-                                    <div class="clear"></div>
-                                    <!--Options-->
-                                    <div class="prod-options marB10">
-                                        <div class="clearfix">
-                                            <div class="col-md-2 col-sm-3 padL0">
-                                                <div class="form-group">
-                                                    <label><strong>Qty :</strong> </label>
-                                                    <div class="clear"></div>
-                                                    <input type="number" name="qty" value="2" max="10"
-                                                        min="0" placeholder="">
+                            <!--Content Column-->
+                            <div class="content-column col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                                <div class="outer wow fadeInRight">
+                                    <div class="title-box">
+                                        <div class="inner marB30">
+                                            <h2 class="marB10">{{ $sanpham->ten_san_pham }}</h2>
+                                            <p class="availability in-stock"><strong>Availability:</strong> <span>In
+                                                    stock</span></p>
+                                            <ul class="ratings">
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
+                                            </ul>
+                                            <span class="price marB10">
+                                                {{ $sanpham->gia }}
+                                                
+                                                <span class="clear"></span>
+                                            </span>
+                                           <p>{{ $sanpham->mo_ta }}</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <!--Options-->
+                                        <div class="prod-options marB10">
+                                            <div class="clearfix">
+                                                <div class="col-md-2 col-sm-3 padL0">
+                                                    <div class="form-group">
+                                                        <label><strong>Qty :</strong> </label>
+                                                        <div class="clear"></div>
+                                                        <input type="number" name="qty" value="2" max="10"
+                                                            min="0" placeholder="">
+                                                    </div>
                                                 </div>
+
                                             </div>
-                                            {{-- <div class="col-md-5 col-sm-4 padL0">
-                                                <div class="form-group">
-                                                    <label><strong>Color :</strong> </label>
-                                                    <div class="clear"></div>
-                                                    <select name="sel-color">
-                                                        <option>Select Color</option>
-                                                        <option>Red</option>
-                                                        <option>Green</option>
-                                                        <option>Yellow</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-4 padL0">
-                                                <div class="form-group">
-                                                    <label><strong>Size :</strong> </label>
-                                                    <div class="clear"></div>
-                                                    <select name="sel-color">
-                                                        <option>Select Size</option>
-                                                        <option>Small</option>
-                                                        <option>Medium</option>
-                                                        <option>Large</option>
-                                                    </select>
-                                                </div>
-                                            </div> --}}
-                                            {{-- <div class="form-group col-sm-12 padL0 quantity">
-                                                <label><strong>Tags</strong></label>
-                                                <div class="tag-list">
-                                                    <a class="btnlight" href="#"><i class="fa fa-tags"
-                                                            aria-hidden="true"></i> E-Commerce</a>
-                                                    <a class="btnlight" href="#"><i class="fa fa-tags"
-                                                            aria-hidden="true"></i> Html</a>
-                                                    <a class="btnlight" href="#"><i class="fa fa-tags"
-                                                            aria-hidden="true"></i> red</a>
-                                                    <a class="btnlight" href="#"><i class="fa fa-tags"
-                                                            aria-hidden="true"></i> brands</a>
-                                                    <a class="btnlight" href="#"><i class="fa fa-tags"
-                                                            aria-hidden="true"></i>dresses</a>
-                                                    <a class="btnlight" href="#"><i class="fa fa-tags"
-                                                            aria-hidden="true"></i> responsive</a>
-                                                    <a class="btnlight" href="#"><i class="fa fa-tags"
-                                                            aria-hidden="true"></i> template</a>
-                                                </div>
-                                            </div> --}}
                                         </div>
                                     </div>
-                                </div>
-                                <!--Add-->
-                                <div class="add-options">
-                                    <button type="button" class="theme-button">Order Now</button>
-                                    <button type="button" class="theme-button"><span
-                                            class="fa fa-heart"></span></button>
+                                    <!--Add-->
+                                    <div class="add-options">
+                                        <a  class="theme-button" href="{{ route('cart.add', $sanpham->id_san_pham) }}">Order Now</a>
+                                            
+                                        {{-- <button type="button" class="theme-button">Order Now</button> --}}
+                                        <button type="button" class="theme-button"><span
+                                                class="fa fa-heart"></span></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--//=========product Detail End=========//-->
-    <!--//==product Description Start==//-->
-    <section class="page_single">
-        <div class="container">
-            <div class="row">
-                <div class="prod-info-section">
-                    <div class="clearfix">
-                        <div class="col-md-12">
-                            <div class="block-caption">
-                                <div class="left-title">
-                                    <h2>Product Discription <span class="heading-border"></span></h2>
-                                    <div class="clear"></div>
+        </section>
+        <!--//=========product Detail End=========//-->
+        <!--//==product Description Start==//-->
+        <section class="page_single">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-info-section">
+                        <div class="clearfix">
+                            <div class="col-md-12">
+                                <div class="block-caption">
+                                    <div class="left-title">
+                                        <h2>Product Discription <span class="heading-border"></span></h2>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <p>Nam quis magna in dui fringilla sodales et at ante. Nulla condimentum sed magna ut
+                                        Maecenas lacus ante, mattis sed euismod sed, iaculis sed libInteger tortor tellus,
+                                        varius ac maximus at, vehicula nec purus. Ut at posuere sapien, ut molestie nisi.
+                                        Donec
+                                        mauris justo, Praesent sed interdum arcu, eget interdum elit. Proin quis sapien a ex
+                                        ultrices condimentum eu vel neque. Donec maximus, erat eu mattis feugiat, nisl
+                                        tellus
+                                        vehicula lorem, ut ullamcorper ex risus eu magna. Cum sociis natoque penatibus et
+                                        magnis
+                                        dis parturient montes, nascetur ridiculus mus.</p>
+                                    <p>Condimentum sed magna ut Maecenas lacus ante, mattis sed euismod sed, iaculis sed
+                                        libInteger tortor tellus, varius ac maximus at, vehicula nec purus. Ut at posuere
+                                        sapien, ut molestie nisi. Donec mauris justo, Praesent sed interdum arcu, eget
+                                        interdum
+                                        elit. Proin quis sapien a ex ultrices condimentum eu vel neque. Donec maximus, erat
+                                        eu
+                                        mattis feugiat, nisl tellus vehicula lorem, ut ullamcorper ex risus eu magna. Cum
+                                        sociis
+                                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur
+                                        luctus felis vitae ante gravida, quis imperdiet mauris convallis. </p>
                                 </div>
-                                <p>Nam quis magna in dui fringilla sodales et at ante. Nulla condimentum sed magna ut
-                                    Maecenas lacus ante, mattis sed euismod sed, iaculis sed libInteger tortor tellus,
-                                    varius ac maximus at, vehicula nec purus. Ut at posuere sapien, ut molestie nisi. Donec
-                                    mauris justo, Praesent sed interdum arcu, eget interdum elit. Proin quis sapien a ex
-                                    ultrices condimentum eu vel neque. Donec maximus, erat eu mattis feugiat, nisl tellus
-                                    vehicula lorem, ut ullamcorper ex risus eu magna. Cum sociis natoque penatibus et magnis
-                                    dis parturient montes, nascetur ridiculus mus.</p>
-                                <p>Condimentum sed magna ut Maecenas lacus ante, mattis sed euismod sed, iaculis sed
-                                    libInteger tortor tellus, varius ac maximus at, vehicula nec purus. Ut at posuere
-                                    sapien, ut molestie nisi. Donec mauris justo, Praesent sed interdum arcu, eget interdum
-                                    elit. Proin quis sapien a ex ultrices condimentum eu vel neque. Donec maximus, erat eu
-                                    mattis feugiat, nisl tellus vehicula lorem, ut ullamcorper ex risus eu magna. Cum sociis
-                                    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur
-                                    luctus felis vitae ante gravida, quis imperdiet mauris convallis. </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <!--//==product Description End==//-->
     <!--//==product Review Section Start==//-->
     <section class="page_single">

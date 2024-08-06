@@ -13,7 +13,7 @@
                 <div class="centered-title">
                     <h2>Đăng ký<span class="heading-border"></span></h2>
                     <div class="clear"></div>
-                    <em>Chán không muốn nói !!</em>
+                
                 </div>
                 <!--//==Form Start==//-->
                 @if (session('message'))
@@ -23,14 +23,14 @@
                     @csrf
                     <p class="form-row pd-right">
                         <label for="username">Nhập name <span class="required">*</span></label>
-                        <input type="text" name="name" id="username" class="form-controller"  placeholder="Nhập name vào !" {{{old('name')}}} >
+                        <input type="text" name="name" id="username" class="form-controller"  placeholder="Nhập name vào !" >
                     </p>
                     @error('username')
                     <div class="alert alert-danger"> {{$message}} </div>
                     @enderror
                     <p class="form-row pd-right">
                         <label for="username">Nhập Email <span class="required">*</span></label>
-                        <input type="email" name="email" id="username" class="form-controller"  placeholder="Nhập email vào !" {{{old('email')}}} >
+                        <input type="email" name="email" id="username" class="form-controller"  placeholder="Nhập email vào !"  >
                     </p>
                     @error('email')
                     <div class="alert alert-danger"> {{$message}} </div>
