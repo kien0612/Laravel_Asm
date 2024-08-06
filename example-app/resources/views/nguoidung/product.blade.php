@@ -72,7 +72,7 @@
                         class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0 mix">
                         <div class="wa-products">
                             <div class="wa-products-thumbnail wa-item">
-                                <img src="{{ $item->hinh_anh }}" alt="">
+                                <img src="{{ Storage::url($item->hinh_anh) }}" alt="">
                                 <div class="caption">
                                     <div class="caption-text">
                                         <ul class="wa-products-icon">
@@ -89,9 +89,9 @@
                                 </div>
                             </div>
                             <div class="wa-products-caption">
-                                <h2>
-                                    <a href="{{ route('productdetail',$item->id_san_pham) }}">{{$item->ten_san_pham}}</a>
-                                </h2>
+                                <span >
+                                    <a style="color: black" href="{{ route('productdetail',$item->id_san_pham) }}">{{$item->ten_san_pham}}</a>
+                                </span>
                                 <div class="clear"></div>
                                 <ul class="ratings">
                                     <li><a href="#"><i class="fa fa-star"></i></a></li>

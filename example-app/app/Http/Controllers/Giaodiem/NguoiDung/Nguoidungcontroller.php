@@ -20,7 +20,7 @@ class Nguoidungcontroller extends Controller
 
     public function index()
     {
-        $sanpham = DB::table('san_phams')->get();
+        $sanpham = DB::table('san_phams')->paginate(10);
         $banner = DB::table('banner_makettings')->get();
         return view('nguoidung.index', compact('sanpham', 'banner'));
     }
