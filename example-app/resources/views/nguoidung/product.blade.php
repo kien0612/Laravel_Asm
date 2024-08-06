@@ -80,7 +80,7 @@
                                             </li>
                                             <li><a href="#" class="quickview-box-btn" title="Quick View"><i
                                                         class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" title="Add to cart"><i
+                                            <li><a href="{{ route('cart.add', $item->id_san_pham) }}" title="Add to cart"><i
                                                         class="fa fa-shopping-basket"></i></a>
                                             </li>
                                         </ul>
@@ -102,7 +102,7 @@
                                 </ul>
                                 <div class="clear"></div>
                                 <span class="price">
-                                    <del>$200</del>
+                                    
                                     {{ number_format($item->gia, 2) }}
                                 </span>
                             </div>
