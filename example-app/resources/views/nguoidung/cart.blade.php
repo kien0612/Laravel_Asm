@@ -1,12 +1,12 @@
 @extends('nguoidung.layout')
 @section('content')
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-<!-- Phần còn lại của mã HTML để hiển thị giỏ hàng -->
+    <!-- Phần còn lại của mã HTML để hiển thị giỏ hàng -->
 
     <div class="page-header black-overlay">
         <div class="container breadcrumb-section">
@@ -119,8 +119,9 @@
                                     <div class="col-md-2 col-sm-2">
                                         <div class="order-data order-table text-center">
                                             <div class="order-table-cell order-text">
-                                                <strong><a onclick="return confirm('Ban co muon xoa ? ')" href="{{ route('cart.delete', $item->id_san_pham) }}"><i class="fa fa-trash"
-                                                            aria-hidden="true"></i></a></strong>
+                                                <strong><a onclick="return confirm('Ban co muon xoa ? ')"
+                                                        href="{{ route('cart.delete', $item->id_san_pham) }}"><i
+                                                            class="fa fa-trash" aria-hidden="true"></i></a></strong>
                                             </div>
                                         </div>
                                     </div>
@@ -134,9 +135,9 @@
                                 <h3>Tổng tiền : </h3>
                             </div>
                         </div>
-                        <div class="col-md-8 col-sm-2 grey-bg" >
+                        <div class="col-md-8 col-sm-2 grey-bg">
                             <div class="order-data text-right pad15">
-                                <h3 style="color: red">{{$cart->totalPrice}}</h3>
+                                <h3 style="color: red">{{ $cart->totalPrice }}</h3>
                             </div>
                         </div>
 
@@ -193,7 +194,7 @@
                                 <p>subtotal</p>
                             </div>
                             <div class="col-xs-6 col-md-6 wv_subtotal_right textR">
-                                <p>$340.00</p>
+                                <p>{{ $cart->totalPrice }}</p>
                             </div>
                         </div>
                         <div class="wv_subtotaling">
@@ -209,17 +210,21 @@
                                 <p>Total</p>
                             </div>
                             <div class="col-xs-6 col-md-6 wv_total_right textR">
-                                <p>$325.00</p>
+                                <p>{{ $cart->totalPrice - 15.00 }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-md-6 wv_checkout wv_form_field">
-                                <button type="submit" class="theme-button col-xs-12 marT0">checkout</button>
+                                <form action="{{ route('cart.checkout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="theme-button col-xs-12 marT0">Checkout</button>
+                                </form>
                             </div>
                             <div class="col-xs-12 col-md-6 wv_checkout wv_form_field1 responsive_field1">
-                                <button type="submit" class="theme-button col-xs-12 marT0">continue ordeing </button>
+                                <a href="{{ route('product') }}" class="theme-button col-xs-12 marT0">Continue Ordering</a>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <!--//== Price Calculation Section End ==//-->

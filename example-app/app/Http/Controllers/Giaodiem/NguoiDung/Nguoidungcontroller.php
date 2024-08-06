@@ -8,6 +8,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
+use Illuminate\Support\Facades\Auth;
 
 class Nguoidungcontroller extends Controller
 {
@@ -19,7 +20,7 @@ class Nguoidungcontroller extends Controller
 
     public function index()
     {
-        $sanpham = DB::table('san_phams')->get();
+        $sanpham = DB::table('san_phams')->paginate(10);
         $banner = DB::table('banner_makettings')->get();
         return view('nguoidung.index', compact('sanpham', 'banner'));
     }
@@ -51,11 +52,25 @@ class Nguoidungcontroller extends Controller
         session()->flash('success', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
         return redirect()->route('cart');
     }
-
-    public function checkout()
+    public function checkout(Request $request)
     {
-        return view('nguoidung.checkout');
+        $cart = new Cart();
+
+        // Kiểm tra xem người dùng đã đăng nhập chưa
+        if (Auth::check()) {
+            $cartSaved = $cart->saveToDatabase();
+
+            if ($cartSaved) {
+                return redirect()->route('checkout.page');
+            } else {
+                return redirect()->back()->with('error', 'Không thể lưu giỏ hàng.');
+            }
+        } else {
+            return redirect()->route('login');
+        }
     }
+
+   
    
     public function productdetail($id_san_pham)
     {

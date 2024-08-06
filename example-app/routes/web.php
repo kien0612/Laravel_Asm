@@ -50,6 +50,7 @@ Route::get('cart', [Nguoidungcontroller::class, 'view'])->name('cart');
 Route::get('/add/{sanpham}', [Nguoidungcontroller::class, 'addToCart'])->name('cart.add');
 Route::get('/delete/{id}', [Nguoidungcontroller::class, 'deleteCart'])->name('cart.delete');
 Route::get('/product/{id_san_pham}', [Nguoidungcontroller::class, 'productdetail'])->name('productdetail');
+Route::post('/checkout', [Nguoidungcontroller::class, 'checkout'])->name('cart.checkout');
 
 // Route::get('productdetail', [Nguoidungcontroller::class, 'productdetail'])->name('productdetail');
 Route::get('contact', [Nguoidungcontroller::class, 'contact'])->name('contact');

@@ -23,44 +23,6 @@
         <section class="checkout-page padT100 padB50">
             <div class="container">
                 <div class="row product-checkout pad-s15">
-                    <div class="col-md-12">
-                        <div class="market-info">
-                            <i class="fa fa-list-alt"></i> Returning a customer? <a class="showlogin" href="#">Click here to login</a>	
-                        </div>
-                        <form action="#" method="post" class="login row">
-                            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section.</p>
-                            <p class="form-row col-sm-6 pd-right">
-                                <input type="text" name="username" id="username" placeholder="Username or email*" class="form-controller">
-                            </p>
-                            <p class="form-row col-sm-6 pd-left">
-                                <input type="password" name="password" id="password" placeholder="Passwords*" class="form-controller">
-                            </p>
-                            <p class="form-row col-sm-12">
-                                <input type="submit" value="Login" name="login" class="theme-button marL0">
-                                <label class="inline" for="rememberme">
-                                <input type="checkbox" value="forever" id="rememberme" name="rememberme"> Remember me		
-                                </label>
-                            </p>
-                            <p class="lost_password col-sm-12">
-                                <a href="#">Lost your password?</a>
-                            </p>
-                        </form>
-                    </div>
-                    <!-- /.col-md-12 -->
-                    <div class="col-md-12 marT30 marB30">
-                        <div class="market-info">
-                            <i class="fa fa-list-alt"></i>Have a coupon?<a class="showcoupon" href="#">Click here to enter your code</a>
-                        </div>
-                        <form action="#" method="post" class="checkout_coupon row">
-                            <p class="form-row col-sm-12">
-                                <input type="text" value="" id="coupon_code" placeholder="Coupon code" class="input-text" name="coupon_code">
-                            </p>
-                            <p class="form-row col-sm-12">
-                                <input type="submit" value="Apply Coupon" name="apply_coupon" class="theme-button">
-                            </p>
-                        </form>
-                    </div>
-                    <!-- /.col-md-12 -->					
                     <!--//==Billings and Shipping Form Start==//-->	
                     <form class="contact-form">
                         <div class="col-sm-6 col-md-6 wv_checkout_left marT30">
@@ -101,21 +63,7 @@
                                 <div class="col-md-6 form-group">
                                     <input class="wv_form_focus" type="text" placeholder="Postcode/zip:">
                                 </div>
-                                <!--//==Create Account Input Field==//-->
-                                <div class="col-md-12 form-group">
-                                    <div class="wv_widget wv_checkout_check">
-                                        <input type="checkbox" class="grey" value="1" name="createaccount" id="createaccount">
-                                        <label for="createaccount">Create an account?</label>										
-                                    </div>
-                                </div>
-                                <div class="create-account col-sm-12">
-                                    <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-                                    <p id="account_password_field">
-                                        <input type="password" value="" placeholder="Account password*" id="account_password" name="account_password" class="form-controller">
-                                    </p>
-                                </div>
                             </div>
-                            <!--//==Billings Form Start==//-->	
                         </div>
                         <div class="col-sm-6 col-md-6 marT30">
                             <!--//== Section Heading Start ==//-->
@@ -125,8 +73,6 @@
                                 </h2>
                                 <div class="clear"></div>
                             </div>
-                            <!--//== Section Heading End ==//-->
-                            <!--//==Shipping Form Start==//-->							
                             <div class="row shipping-fields">
                                 <!--//==Shipping Input Field==//-->
                                 <div class="col-md-6 form-group">
@@ -284,7 +230,8 @@
         </section>
         <!--//== Place Order End ==//-->
         <!--//=========instagram-gallery start=========//-->	
-        <div class="instagram-gallery page_single">
+@endsection
+        {{-- <div class="instagram-gallery page_single">
             <div class="container-fluid">
                 <div class="row">
                     <div class="insta-waterark">
@@ -390,5 +337,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-@endsection
+        </div> --}}

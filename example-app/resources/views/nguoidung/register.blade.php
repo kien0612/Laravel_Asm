@@ -13,7 +13,7 @@
                 <div class="centered-title">
                     <h2>Đăng ký<span class="heading-border"></span></h2>
                     <div class="clear"></div>
-                    <em>Chán không muốn nói !!</em>
+                
                 </div>
                 <!--//==Form Start==//-->
                 @if (session('message'))
