@@ -76,7 +76,7 @@ route::group(
   [
     'prefix' => 'admin',
     'as' => 'admin.',
-    // 'middleware' =>'checkAdmin'
+    'middleware' =>'checkAdmin'
   ],
   function () {
     Route::get('admin', [Admincontroller::class, 'admin'])->name('admin');

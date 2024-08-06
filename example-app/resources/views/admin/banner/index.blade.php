@@ -1,5 +1,6 @@
 @extends('admin.layout');
 @section('content')
+<br><br><br><br>
     <a class="btn btn-dark" href="{{ route('admin.banner.create') }}">Theem moi</a>
     <table class="table">
         <thead>

@@ -3,7 +3,7 @@
 @section('content')
     <h1>Chỉnh Sửa Đánh Giá</h1>
     <br>
-    <form action="{{ route('admin.danhgia.update', $danh_gia->id_danh_gia) }}" method="POST">
+    <form action="{{ route('admin.danhgia.store', $danh_gia->id_danh_gia) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">

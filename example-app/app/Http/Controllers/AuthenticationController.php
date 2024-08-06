@@ -59,13 +59,13 @@ class AuthenticationController extends Controller
     public function postdanhky(Request $req){
 
       $validate = $req->validate([
-        'username' =>'required|min:3',  
+        'name' =>'required|min:3',  
         'email' => 'required|email',
         'password' => 'required|min:6',
         ],
         [
-          'username.required' => 'Vui lòng nhập username',
-          'username.min' => 'username không đươc bé hơn 3 kí tự',
+          'name.required' => 'Vui lòng nhập username',
+          'name.min' => 'username không đươc bé hơn 3 kí tự',
           'email.required' => 'Vui lòng nhập email',
           'email.email' => 'Email không đúng định đạng dạng',
           'password.required' => 'Vui lòng nhập mật khẩu',

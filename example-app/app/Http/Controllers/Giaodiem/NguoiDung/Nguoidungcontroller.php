@@ -13,7 +13,7 @@ class Nguoidungcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
-     * 
+     *  
      */
     private $view;
 
@@ -38,33 +38,10 @@ class Nguoidungcontroller extends Controller
     }
 
 
-<<<<<<< HEAD
-    public function addtocart( $id_san_pham)
-    {
-        $sanpham = DB::table('san_phams')->where('id_san_pham', $id_san_pham)->first();
-        $cart = session()->get('', []);
-     
-    
-        if (isset($cart[$id_san_pham])) {
-            $cart[$id_san_pham]['so_luong']++;
-        } else {
-            $cart[$id_san_pham] = [
-                'ten_san_pham' => $sanpham->ten_san_pham,
-                'gia' => $sanpham->gia,
-                'so_luong' => 1,
-                'hinh_anh' => $sanpham->hinh_anh
-            ];
-        }
-       
-        session()->put('cart', $cart);
-        // dd($cart); // Uncomment for debugging if needed
-        return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
-=======
     public function addToCart(SanPham $sanpham, Cart $cart){
         $cart->add($sanpham);
         session()->flash('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
         return redirect()->route('cart');
->>>>>>> 11d66c806d1498769fab40fe6af052b2e10fa8f6
     }
     public function view(Cart $cart){
         return view('nguoidung.cart', compact('cart'));
