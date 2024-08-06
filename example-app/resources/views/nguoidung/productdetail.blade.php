@@ -31,7 +31,7 @@
                                 <div class="wa-product-main-image marB20">
                                     <a href="assets/img/product/product-detail.jpg" class="fancybox"
                                         data-fancybox-group="group" title="Product Title Here"> <img
-                                            src="{{ $sanpham->hinh_anh }}" alt=""> </a>
+                                            src="{{Storage::url($sanpham->hinh_anh) }}" alt=""> </a>
                                 </div>
                             </div>
                             <!--Content Column-->
